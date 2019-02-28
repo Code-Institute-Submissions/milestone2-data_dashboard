@@ -85,66 +85,40 @@ function show_purpose_of_travel (ndx){
 
     var purpose_dim = ndx.dimension(dc.pluck('dur_stay'));
 
-    var spendByPurpose_business = purpose_dim.group().reduceSum( function (d){
-        if (d.purpose === 'Business') {
-            return +d.spend; 
-        } else {
-            return 0;
+    function spendByPurpose(purpose) {
+        return function (d) {
+            if (d.purpose === purpose) {
+                return +d.spend;
+            } else {
+                return 0;
+            }
         }
-    });
+    }
 
-    var spendByPurpose_holiday = purpose_dim.group().reduceSum( function (d){
-        if (d.purpose === 'Holiday') {
-            return +d.spend; 
-        } else {
-            return 0;
-        }
-    });
-
-    var spendByPurpose_vfr = purpose_dim.group().reduceSum( function (d){
-        if (d.purpose === 'VFR') {
-            return +d.spend; 
-        } else {
-            return 0;
-        }
-    });
-
-      var spendByPurpose_misc = purpose_dim.group().reduceSum( function (d){
-        if (d.purpose === 'Miscellaneous') {
-            return +d.spend ; 
-        } else {
-            return 0;
-        }
-    });
-
-    var spendByPurpose_study = purpose_dim.group().reduceSum( function (d){
-        if (d.purpose === 'Study') {
-            return +d.spend; 
-        } else {
-            return 0;
-        }
-    });
+    var spendByPurpose_business =purpose_dim.group().reduceSum(spendByPurpose ('Business'));
+    var spendByPurpose_holiday =purpose_dim.group().reduceSum(spendByPurpose ('Holiday'));
+    var spendByPurpose_vfr =purpose_dim.group().reduceSum(spendByPurpose ('VFR'));
+    var spendByPurpose_study =purpose_dim.group().reduceSum(spendByPurpose ('Study'));
+    var spendByPurpose_misc =purpose_dim.group().reduceSum(spendByPurpose ('Miscellaneous'));
+    
 
     var stackedChart = dc.barChart('#stacked_purpose_travel');
     stackedChart    
-        .width(500)
-        .height(500)
-        .margins({ top: 10, right: 50, bottom: 30, left: 50 })
+        .width(600)
+        .height(400)
+        .margins({ top: 10, right: 100, bottom: 30, left: 50 })
         .dimension(purpose_dim)
         .group(spendByPurpose_business, 'Business')
         .stack(spendByPurpose_holiday, 'Holiday')
-        .stack(spendByPurpose_vfr, 'Vising Friends & Relatives')
-        .stack(spendByPurpose_misc, 'Miscellaneous')
+        .stack(spendByPurpose_vfr, 'Visiting Friends & Relatives')
+        .stack(spendByPurpose_misc, 'Misc')
         .stack(spendByPurpose_study, 'Study')
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
-        .elasticX(true)
-        .legend(dc.legend().x(480).y(0).itemHeight(10).gap(5));
+        .xAxisLabel('Duration of Stay')
+        .yAxisLabel('Spend in 1000s')
+        .elasticY(true)
+        .legend(dc.legend().x(420).y(20).itemHeight(10).gap(5).itemWidth(20));
 
     
 }
-
-
-
-
-
