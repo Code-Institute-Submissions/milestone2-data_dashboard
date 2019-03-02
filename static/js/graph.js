@@ -12,7 +12,7 @@ function makeGraphs(error, visitorData) {
     show_mode_of_travel (ndx)
     show_purpose_of_travel (ndx)
     // show_average_spend_per_duration (ndx)
-    // show_spend_years_qtrs (ndx)
+    show_spend_years_qtrs (ndx)
 
     dc.renderAll();
 
@@ -121,4 +121,55 @@ function show_purpose_of_travel (ndx){
         .legend(dc.legend().x(420).y(20).itemHeight(10).gap(5).itemWidth(20));
 
     
+}
+/* Composite Line Graph of spend over the years per quarter */
+
+function show_spend_years_qtrs (ndx){
+
+    var yearsDim = ndx.dimension(dc.pluck('year'));
+
+
+    function spendByQtr(quarter) {
+        return function (d) {
+            if (d.quarter === quarter) {
+                return +d.spend;
+            } else {
+                return 0;
+            }
+        }
+    };
+  
+    var spendByQtr1 =yearsDim.group().reduceSum(spendByQtr('Q1'));
+    var spendByQtr2 =yearsDim.group().reduceSum(spendByQtr('Q2'));
+    var spendByQtr3 =yearsDim.group().reduceSum(spendByQtr('Q3'));
+    var spendByQtr4 =yearsDim.group().reduceSum(spendByQtr('Q4'));
+    
+
+    var compositeChart = dc.compositeChart("#line_spend_years_qtr");
+
+compositeChart 
+            .width(600)
+            .height(400)
+            .dimension(yearsDim)
+            .renderHorizontalGridLines(true)
+            .margins({ top: 10, right: 100, bottom: 30, left: 50 })
+            .x(d3.scale.linear().domain(['2002','2018']))
+            .elasticY(true)
+            .yAxisLabel("Spend in 1000s")
+            .legend(dc.legend().x(420).y(20).itemHeight(10).gap(5).itemWidth(20))
+            .compose([
+                    dc.lineChart(compositeChart)
+                        .colors('green')
+                        .group(spendByQtr1, 'Quarter 1'),
+                    dc.lineChart(compositeChart)
+                        .colors('blue')
+                        .group(spendByQtr2, 'Quarter 2'),
+                    dc.lineChart(compositeChart)
+                        .colors('red')
+                        .group(spendByQtr3, 'Quarter 3'),
+                    dc.lineChart(compositeChart)
+                        .colors('yellow')
+                        .group(spendByQtr4, 'Quarter 4'),])
+            .brushOn(false)
+            .render();
 }
