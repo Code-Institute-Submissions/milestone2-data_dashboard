@@ -23,20 +23,31 @@
     <title>International Visitors to London</title>
 </head>
 <body>
+    <header>
+        <div class="container-fluid"><img src="images/london_skyline.jpg" alt="London Skyline" class="header-image">
+        </div>
+    </header>
+    <h1 class='header-title'>International Visitors to London</h1>
 
-    <h1>International Visitors to London</h1>
-    <div class='row'>
-    <div class='container-fluid' id="year_select"></div>
-    </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="chart col-xs-12">
+                    <!-- <h4>Select Year</h4> -->
+                    <div id="year_select">Select Year </div>
+                </div>
+            </div>
+
+        </div>
     <div class='container row'>
+        
         <div id="region_totals_chart"></div>
         <div id="mode_travel"></div>
         <div id="top10Spend"></div>
     </div>
     <div id="stacked_purpose_travel"></div>
-    <!-- <div class='container' id="average_spend_days"></div> -->
     
         <div id='line_spend_years_qtr'></div>
+        <div id='seasonal_visitors'></div>
     
 </body>
 </html>

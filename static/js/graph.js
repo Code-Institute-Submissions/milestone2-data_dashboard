@@ -42,7 +42,9 @@ function show_total_visits_per_region (ndx){
         .radius(100)
         .transitionDuration(1500)
         .dimension(name_dim)
-        .group(region_group);
+        .group(region_group)
+        .legend(dc.legend().itemHeight(13).gap(5))
+        .renderLabel(true);
         
 }
 
@@ -83,7 +85,13 @@ function show_mode_of_travel (ndx){
 /*Stacked bar chart for purpose of travel & spend */
 function show_purpose_of_travel (ndx){
 
-    var purpose_dim = ndx.dimension(dc.pluck('dur_stay'));
+    var durStay_dim = ndx.dimension(dc.pluck('dur_stay'));
+    var spendByPurpose_business =durStay_dim.group().reduceSum(spendByPurpose ('Business'));
+    var spendByPurpose_holiday =durStay_dim.group().reduceSum(spendByPurpose ('Holiday'));
+    var spendByPurpose_vfr =durStay_dim.group().reduceSum(spendByPurpose ('VFR'));
+    var spendByPurpose_study =durStay_dim.group().reduceSum(spendByPurpose ('Study'));
+    var spendByPurpose_misc =durStay_dim.group().reduceSum(spendByPurpose ('Miscellaneous'));
+    
 
     function spendByPurpose(purpose) {
         return function (d) {
@@ -95,11 +103,6 @@ function show_purpose_of_travel (ndx){
         }
     }
 
-    var spendByPurpose_business =purpose_dim.group().reduceSum(spendByPurpose ('Business'));
-    var spendByPurpose_holiday =purpose_dim.group().reduceSum(spendByPurpose ('Holiday'));
-    var spendByPurpose_vfr =purpose_dim.group().reduceSum(spendByPurpose ('VFR'));
-    var spendByPurpose_study =purpose_dim.group().reduceSum(spendByPurpose ('Study'));
-    var spendByPurpose_misc =purpose_dim.group().reduceSum(spendByPurpose ('Miscellaneous'));
     
 
     var stackedChart = dc.barChart('#stacked_purpose_travel');
@@ -107,7 +110,7 @@ function show_purpose_of_travel (ndx){
         .width(600)
         .height(400)
         .margins({ top: 10, right: 100, bottom: 30, left: 50 })
-        .dimension(purpose_dim)
+        .dimension(durStay_dim)
         .group(spendByPurpose_business, 'Business')
         .stack(spendByPurpose_holiday, 'Holiday')
         .stack(spendByPurpose_vfr, 'Visiting Friends & Relatives')
@@ -160,16 +163,16 @@ compositeChart
             .compose([
                     dc.lineChart(compositeChart)
                         .colors('green')
-                        .group(spendByQtr1, 'Quarter 1'),
+                        .group(spendByQtr1, 'Jan to Mar'),
                     dc.lineChart(compositeChart)
                         .colors('blue')
-                        .group(spendByQtr2, 'Quarter 2'),
+                        .group(spendByQtr2, 'Apr to Jun'),
                     dc.lineChart(compositeChart)
                         .colors('red')
-                        .group(spendByQtr3, 'Quarter 3'),
+                        .group(spendByQtr3, 'Jul to Sept'),
                     dc.lineChart(compositeChart)
-                        .colors('yellow')
-                        .group(spendByQtr4, 'Quarter 4'),])
+                        .colors('purple')
+                        .group(spendByQtr4, 'Oct to Dec'),])
             .brushOn(false)
             .render();
 }
