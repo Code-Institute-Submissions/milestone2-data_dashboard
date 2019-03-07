@@ -24,30 +24,74 @@
 </head>
 <body>
     <header>
-        <div class="container-fluid"><img src="images/london_skyline.jpg" alt="London Skyline" class="header-image">
+        
+        <div class="container">
+            <img src="images/london_skyline.jpg" alt="London Skyline" class="header-image">
+        
+        
         </div>
     </header>
-    <h1 class='header-title'>International Visitors to London</h1>
 
-        <div class="container-fluid">
+    <!-- Year selector and reset button -->
+    <section>
+        <div class="container">
+            <div class="col-12 col-sm">
+                <h1 class='page-title'>International Visitors to London</h1>
+            </div>
+        </div>
+        <div class="container">
             <div class="row">
-                <div class="chart col-xs-12">
-                    <!-- <h4>Select Year</h4> -->
-                    <div id="year_select">Select Year </div>
+                <div id="year_select"></div>
+                <div class="reset reset-button">
+                         <a href="javascript:dc.filterAll(); dc.renderAll();" data-placement="right">Reset</a>
+                </div>
+            </div>
+        </div>
+
+      <!-- Pie Charts & Top 10 Country chart --> 
+    <div class="container">
+        <div class="row">
+            <div class="card col-xs-12 col-sm-6 col-md-4">
+                <div class="card-body">
+                    <h4 class="card-title">Number of Vistors by Region of Origin</h4>
+                    <h6>*Number in 1000s</h6>
+                    <div id="region_totals_chart"></div>
+                </div>
+            </div>
+            <div class="card col-xs-12 col-sm-6">
+                    <div class="card-body">
+                            <h4 class="card-title">Top 10 Countries</h4>
+                            
+                <div id="top10Spend"></div>
+            </div>
+            <!-- <div class="card col-xs-12 col-sm-6">
+                    <div class="card-body">
+                            <h4 class="card-title">Mode of Transport</h4> -->
+                            
+                <!-- <div id="mode_travel"></div> -->
+
+            </div>
+        </div>
+        
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="card col-xs-12 col-sm-6">
+                <div class="card-body">
+                    <h4 class="card-title">Spend by Duration & Purpose of Visit</h4>
+                    <div id="stacked_purpose_travel"></div>
+                </div>
+            </div>
+            <div class="card col-xs-12 col-sm-6">
+                <div class="card-body">
+                    <h4 class="card-title">Spend per Year per Quarter</h4>
+                    <div id='line_spend_years_qtr'></div>
                 </div>
             </div>
 
-        </div>
-    <div class='container row'>
-        
-        <div id="region_totals_chart"></div>
-        <div id="mode_travel"></div>
-        <div id="top10Spend"></div>
+        </div> 
     </div>
-    <div id="stacked_purpose_travel"></div>
-    
-        <div id='line_spend_years_qtr'></div>
-        <div id='seasonal_visitors'></div>
-    
+
+    </section>
 </body>
 </html>

@@ -38,13 +38,16 @@ function show_total_visits_per_region (ndx){
     var region_group = name_dim.group().reduceSum(dc.pluck('visits'));
     
     dc.pieChart('#region_totals_chart')
-        .height(500)
+        .height(350)
+        .width(500)
         .radius(100)
         .transitionDuration(1500)
         .dimension(name_dim)
         .group(region_group)
-        .legend(dc.legend().itemHeight(13).gap(5))
-        .renderLabel(true);
+        .legend(dc.legend().y(90).itemHeight(8).gap(10))
+        .renderLabel(false)
+        .colors()
+        ;
         
 }
 
@@ -57,14 +60,16 @@ function show_top_spend_per_market (ndx) {
     
 
     dc.rowChart('#top10Spend')
-        .height(300)
-        .width(400)
+        .height(350)
+        .width(500)
         .dimension(market_spend_dim)
         .group(spend_group)
         .gap(5)
         .data(function (group) { return group.top(10); })
         .elasticX(true)
+        
         .xAxis().ticks(5);
+        
   
 }
 
@@ -75,8 +80,9 @@ function show_mode_of_travel (ndx){
     var mode_travel_group = mode_dim.group();
     
     dc.pieChart('#mode_travel')
-        .height(500)
-        .radius(100)
+        .height(100)
+        .width(50)
+        .radius(50)
         .transitionDuration(1500)
         .dimension(mode_dim)
         .group(mode_travel_group);
@@ -107,9 +113,9 @@ function show_purpose_of_travel (ndx){
 
     var stackedChart = dc.barChart('#stacked_purpose_travel');
     stackedChart    
-        .width(600)
-        .height(400)
-        .margins({ top: 10, right: 100, bottom: 30, left: 50 })
+        .width(480)
+        .height(350)
+        .margins({ top: 10, right: 50, bottom: 40, left: 50 })
         .dimension(durStay_dim)
         .group(spendByPurpose_business, 'Business')
         .stack(spendByPurpose_holiday, 'Holiday')
@@ -121,7 +127,7 @@ function show_purpose_of_travel (ndx){
         .xAxisLabel('Duration of Stay')
         .yAxisLabel('Spend in 1000s')
         .elasticY(true)
-        .legend(dc.legend().x(420).y(20).itemHeight(10).gap(5).itemWidth(20));
+        .legend(dc.legend().x(340).y(20).itemHeight(10).gap(5).itemWidth(20));
 
     
 }
@@ -151,15 +157,15 @@ function show_spend_years_qtrs (ndx){
     var compositeChart = dc.compositeChart("#line_spend_years_qtr");
 
 compositeChart 
-            .width(600)
+            .width(500)
             .height(400)
             .dimension(yearsDim)
             .renderHorizontalGridLines(true)
-            .margins({ top: 10, right: 100, bottom: 30, left: 50 })
+            .margins({ top: 10, right: 50, bottom: 30, left: 50 })
             .x(d3.scale.linear().domain(['2002','2018']))
             .elasticY(true)
             .yAxisLabel("Spend in 1000s")
-            .legend(dc.legend().x(420).y(20).itemHeight(10).gap(5).itemWidth(20))
+            .legend(dc.legend().x(70).y(20).itemHeight(10).gap(5).itemWidth(20))
             .compose([
                     dc.lineChart(compositeChart)
                         .colors('green')
