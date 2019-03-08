@@ -2,16 +2,38 @@ queue()
     .defer(d3.json, 'data/international_visitors_london.json')
     .await(makeGraphs);
 
+    /*Chart colors based on London underground colors 
+        Bakerloo - #A45A2A (Brown) 1906 9
+        Central - #DA291C (Red) 1900 7
+        Circle -  #FFCD00 (Yellow) 1871 4
+        District - #007A33(Moss Green) 1868 3
+        DLR - #00B2A9 (Turqouise) 1987 12
+        Hammersmith & City - #E89CAE(Pink) 1864 2
+        Jubilee - #7C878E (Silver) 1979 11
+        Metropolitan - #840B55(Magenta) 1863 1
+        Northern - #000000 (Black) 1890 5
+        Picacadilly - #10069F (Blue-magenta) 1906 8
+        Tramlink - #78BE20(Lime Green) 1999 13
+        Victoria - #00A3E0 (Light Blue) 1968 10
+        Waterloo & City - #6ECEB2 (Sea Green/Blue) 1898 6
+        
+        Order based on year of opening of Tube line (excluding Northern Line due to it being black) */
+
+    var chartColors = d3.scale.ordinal()   
+    .range(['#840B55', '#E89CAE', '#007A33', '#FFCD00', '#6ECEB2 ', '#DA291C', '#A45A2A','#10069F', '#00A3E0', '#7C878E', '#00B2A9', '#78BE20'])
+
 function makeGraphs(error, visitorData) {
     var ndx = crossfilter(visitorData);
-  
+
+    
+
+
     /*Call each chart function */
     show_year_selector (ndx)
     show_total_visits_per_region(ndx);
     show_top_spend_per_market (ndx)
     show_mode_of_travel (ndx)
     show_purpose_of_travel (ndx)
-    // show_average_spend_per_duration (ndx)
     show_spend_years_qtrs (ndx)
 
     dc.renderAll();
@@ -44,9 +66,9 @@ function show_total_visits_per_region (ndx){
         .transitionDuration(1500)
         .dimension(name_dim)
         .group(region_group)
-        .legend(dc.legend().y(90).itemHeight(8).gap(10))
+        .legend(dc.legend().y(90).itemHeight(10).gap(10))
         .renderLabel(false)
-        .colors()
+        .colors(chartColors)
         ;
         
 }
@@ -67,6 +89,7 @@ function show_top_spend_per_market (ndx) {
         .gap(5)
         .data(function (group) { return group.top(10); })
         .elasticX(true)
+        .colors(chartColors)
         
         .xAxis().ticks(5);
         
@@ -80,9 +103,9 @@ function show_mode_of_travel (ndx){
     var mode_travel_group = mode_dim.group();
     
     dc.pieChart('#mode_travel')
-        .height(100)
-        .width(50)
-        .radius(50)
+        .height(200)
+        .width(200)
+        .radius(100)
         .transitionDuration(1500)
         .dimension(mode_dim)
         .group(mode_travel_group);
@@ -90,6 +113,11 @@ function show_mode_of_travel (ndx){
 
 /*Stacked bar chart for purpose of travel & spend */
 function show_purpose_of_travel (ndx){
+
+    var purposeColors = d3.scale.ordinal()   
+        .domain(['Business', 'Holiday', 'Visiting Friends/Family', 'Misc', 'Study'])
+        .range(['#10069F', '#E89CAE', '#840B55', '#00A3E0', '#007A33'])
+        
 
     var durStay_dim = ndx.dimension(dc.pluck('dur_stay'));
     var spendByPurpose_business =durStay_dim.group().reduceSum(spendByPurpose ('Business'));
@@ -117,9 +145,10 @@ function show_purpose_of_travel (ndx){
         .height(350)
         .margins({ top: 10, right: 50, bottom: 40, left: 50 })
         .dimension(durStay_dim)
+        .colors(purposeColors)
         .group(spendByPurpose_business, 'Business')
         .stack(spendByPurpose_holiday, 'Holiday')
-        .stack(spendByPurpose_vfr, 'Visiting Friends & Relatives')
+        .stack(spendByPurpose_vfr, 'Visiting Friends/Family')
         .stack(spendByPurpose_misc, 'Misc')
         .stack(spendByPurpose_study, 'Study')
         .x(d3.scale.ordinal())
@@ -168,16 +197,16 @@ compositeChart
             .legend(dc.legend().x(70).y(20).itemHeight(10).gap(5).itemWidth(20))
             .compose([
                     dc.lineChart(compositeChart)
-                        .colors('green')
+                        .colors('#007A33')
                         .group(spendByQtr1, 'Jan to Mar'),
                     dc.lineChart(compositeChart)
-                        .colors('blue')
+                        .colors('#10069F')
                         .group(spendByQtr2, 'Apr to Jun'),
                     dc.lineChart(compositeChart)
-                        .colors('red')
+                        .colors('#DA291C ')
                         .group(spendByQtr3, 'Jul to Sept'),
                     dc.lineChart(compositeChart)
-                        .colors('purple')
+                        .colors('#840B55')
                         .group(spendByQtr4, 'Oct to Dec'),])
             .brushOn(false)
             .render();

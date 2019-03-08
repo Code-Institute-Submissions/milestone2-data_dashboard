@@ -10,10 +10,6 @@
     height: 200px;
 }
 
-/* Select menus */
-/* .dc-select-menu {
-    text-align: center;
-} */
 
 a {
     padding-left: 40px;
@@ -22,6 +18,6 @@ a {
 }
 
 .chart-title {
-    
+   font-weight: bold; 
 
 }
