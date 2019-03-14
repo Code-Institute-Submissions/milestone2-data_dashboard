@@ -1,0 +1,498 @@
+[
+  {
+    "market": "Argentina",
+    "region": "Americas",
+    "visit_spend": 707.041211,
+    "nights_spend": 126.3998203,
+    "visits_total": 954270.9033,
+    "spend_total": 572087.2755
+  },
+  {
+    "market": "Australia",
+    "region": "Oceania",
+    "visit_spend": 856.9531412,
+    "nights_spend": 145.4753338,
+    "visits_total": 9334664.615,
+    "spend_total": 6386702.023
+  },
+  {
+    "market": "Austria",
+    "region": "Western Europe",
+    "visit_spend": 529.1389792,
+    "nights_spend": 119.7980568,
+    "visits_total": 2357578.291,
+    "spend_total": 1077229.165
+  },
+  {
+    "market": "Bahrain",
+    "region": "Middle East",
+    "visit_spend": 2315.245259,
+    "nights_spend": 371.4691035,
+    "visits_total": 127117.9259,
+    "spend_total": 276297.4684
+  },
+  {
+    "market": "Belgium",
+    "region": "Western Europe",
+    "visit_spend": 409.3077483,
+    "nights_spend": 118.5328638,
+    "visits_total": 6489968.084,
+    "spend_total": 2117209.925
+  },
+  {
+    "market": "Brazil",
+    "region": "Americas",
+    "visit_spend": 1056.5679,
+    "nights_spend": 147.1262227,
+    "visits_total": 2350472.657,
+    "spend_total": 2015845.761
+  },
+  {
+    "market": "Bulgaria",
+    "region": "Eastern Europe",
+    "visit_spend": 574.6585547,
+    "nights_spend": 110.1667062,
+    "visits_total": 647314.8492,
+    "spend_total": 337890.7955
+  },
+  {
+    "market": "Canada",
+    "region": "Americas",
+    "visit_spend": 777.6963367,
+    "nights_spend": 132.9749778,
+    "visits_total": 6557314.495,
+    "spend_total": 3684552.53
+  },
+  {
+    "market": "Chile",
+    "region": "Americas",
+    "visit_spend": 788.2092167,
+    "nights_spend": 178.7873682,
+    "visits_total": 215603.9926,
+    "spend_total": 138888.2834
+  },
+  {
+    "market": "China",
+    "region": "Asia",
+    "visit_spend": 1378.632062,
+    "nights_spend": 202.1658998,
+    "visits_total": 1438822.664,
+    "spend_total": 1902292.16
+  },
+  {
+    "market": "Czech Republic",
+    "region": "Eastern Europe",
+    "visit_spend": 410.4327539,
+    "nights_spend": 88.22433975,
+    "visits_total": 2041763.329,
+    "spend_total": 703887.5397
+  },
+  {
+    "market": "Denmark",
+    "region": "Western Europe",
+    "visit_spend": 553.0456664,
+    "nights_spend": 126.4706375,
+    "visits_total": 5060604.759,
+    "spend_total": 2411837.374
+  },
+  {
+    "market": "Egypt",
+    "region": "Africa",
+    "visit_spend": 1724.488158,
+    "nights_spend": 262.9247346,
+    "visits_total": 479996.6929,
+    "spend_total": 811352.3905
+  },
+  {
+    "market": "Finland",
+    "region": "Western Europe",
+    "visit_spend": 579.0832707,
+    "nights_spend": 121.8362121,
+    "visits_total": 1829069.684,
+    "spend_total": 891772.808
+  },
+  {
+    "market": "France",
+    "region": "Western Europe",
+    "visit_spend": 574.1935966,
+    "nights_spend": 88.10958129,
+    "visits_total": 25546731.04,
+    "spend_total": 8587062.252
+  },
+  {
+    "market": "Germany",
+    "region": "Western Europe",
+    "visit_spend": 506.3048087,
+    "nights_spend": 89.48942106,
+    "visits_total": 19471242.19,
+    "spend_total": 7230993.84
+  },
+  {
+    "market": "Greece",
+    "region": "Western Europe",
+    "visit_spend": 937.3182723,
+    "nights_spend": 155.9150411,
+    "visits_total": 1884581.132,
+    "spend_total": 1409023.024
+  },
+  {
+    "market": "Hong Kong",
+    "region": "Asia",
+    "visit_spend": 1163.049724,
+    "nights_spend": 218.3620501,
+    "visits_total": 1616166.325,
+    "spend_total": 1618234.016
+  },
+  {
+    "market": "Hungary",
+    "region": "Eastern Europe",
+    "visit_spend": 453.204526,
+    "nights_spend": 93.09280324,
+    "visits_total": 1603062.117,
+    "spend_total": 609428.0987
+  },
+  {
+    "market": "Iceland",
+    "region": "Western Europe",
+    "visit_spend": 608.6844155,
+    "nights_spend": 178.7062832,
+    "visits_total": 546374.1368,
+    "spend_total": 325120.7308
+  },
+  {
+    "market": "India",
+    "region": "Asia",
+    "visit_spend": 967.4205185,
+    "nights_spend": 121.9393835,
+    "visits_total": 3590977.072,
+    "spend_total": 2729283.563
+  },
+  {
+    "market": "Indonesia",
+    "region": "Asia",
+    "visit_spend": 1298.668223,
+    "nights_spend": 246.684789,
+    "visits_total": 171514.6496,
+    "spend_total": 186063.9321
+  },
+  {
+    "market": "Irish Republic",
+    "region": "Western Europe",
+    "visit_spend": 473.1344199,
+    "nights_spend": 112.3932788,
+    "visits_total": 11068917.02,
+    "spend_total": 3971367.425
+  },
+  {
+    "market": "Israel",
+    "region": "Middle East",
+    "visit_spend": 799.7116779,
+    "nights_spend": 153.9034355,
+    "visits_total": 2162686.904,
+    "spend_total": 1446653.522
+  },
+  {
+    "market": "Italy",
+    "region": "Western Europe",
+    "visit_spend": 665.485888,
+    "nights_spend": 93.71542287,
+    "visits_total": 14600490.87,
+    "spend_total": 6795224.755
+  },
+  {
+    "market": "Japan",
+    "region": "Asia",
+    "visit_spend": 939.4029028,
+    "nights_spend": 154.893192,
+    "visits_total": 3180214.172,
+    "spend_total": 2392008.059
+  },
+  {
+    "market": "Kenya",
+    "region": "Africa",
+    "visit_spend": 1042.691177,
+    "nights_spend": 163.6090193,
+    "visits_total": 326289.5259,
+    "spend_total": 349290.074
+  },
+  {
+    "market": "Kuwait",
+    "region": "Middle East",
+    "visit_spend": 2749.664281,
+    "nights_spend": 346.4693222,
+    "visits_total": 916399.0065,
+    "spend_total": 2785513.718
+  },
+  {
+    "market": "Luxembourg",
+    "region": "Western Europe",
+    "visit_spend": 431.7619781,
+    "nights_spend": 160.4307429,
+    "visits_total": 622292.5456,
+    "spend_total": 280469.9133
+  },
+  {
+    "market": "Malaysia",
+    "region": "Asia",
+    "visit_spend": 1022.168812,
+    "nights_spend": 164.4228399,
+    "visits_total": 1293294.083,
+    "spend_total": 1114658.789
+  },
+  {
+    "market": "Mexico",
+    "region": "Americas",
+    "visit_spend": 833.4465274,
+    "nights_spend": 167.6524137,
+    "visits_total": 1076967.791,
+    "spend_total": 837400.5963
+  },
+  {
+    "market": "Netherlands",
+    "region": "Western Europe",
+    "visit_spend": 437.041013,
+    "nights_spend": 109.1453963,
+    "visits_total": 10563690.79,
+    "spend_total": 3802165.402
+  },
+  {
+    "market": "New Zealand",
+    "region": "Oceania",
+    "visit_spend": 741.0940963,
+    "nights_spend": 121.2301518,
+    "visits_total": 1713035.194,
+    "spend_total": 1029730.193
+  },
+  {
+    "market": "Nigeria",
+    "region": "Africa",
+    "visit_spend": 1668.85761,
+    "nights_spend": 277.6896154,
+    "visits_total": 1683451.459,
+    "spend_total": 2458156.51
+  },
+  {
+    "market": "Norway",
+    "region": "Western Europe",
+    "visit_spend": 658.3767387,
+    "nights_spend": 153.0140112,
+    "visits_total": 5369615.476,
+    "spend_total": 3054023.331
+  },
+  {
+    "market": "Oman",
+    "region": "Middle East",
+    "visit_spend": 2539.689897,
+    "nights_spend": 277.5286309,
+    "visits_total": 96412.31692,
+    "spend_total": 185105.3678
+  },
+  {
+    "market": "Other Africa",
+    "region": "Africa",
+    "visit_spend": 1312.001633,
+    "nights_spend": 183.6340869,
+    "visits_total": 1568618.298,
+    "spend_total": 1767534.178
+  },
+  {
+    "market": "Other Asia",
+    "region": "Asia",
+    "visit_spend": 1124.435663,
+    "nights_spend": 174.3173185,
+    "visits_total": 1105416.658,
+    "spend_total": 1035664.272
+  },
+  {
+    "market": "Other Central & South America",
+    "region": "Americas",
+    "visit_spend": 920.9398631,
+    "nights_spend": 146.0450371,
+    "visits_total": 1658592.974,
+    "spend_total": 1285412.975
+  },
+  {
+    "market": "Other Eastern Europe",
+    "region": "Eastern Europe",
+    "visit_spend": 776.7494849,
+    "nights_spend": 120.592924,
+    "visits_total": 4491069.991,
+    "spend_total": 2510280.915
+  },
+  {
+    "market": "Other Middle East",
+    "region": "Middle East",
+    "visit_spend": 1996.044062,
+    "nights_spend": 351.2521536,
+    "visits_total": 1145265.081,
+    "spend_total": 1934146.848
+  },
+  {
+    "market": "Other Southern Africa",
+    "region": "Africa",
+    "visit_spend": 868.9581789,
+    "nights_spend": 178.2823506,
+    "visits_total": 240923.3976,
+    "spend_total": 203814.8459
+  },
+  {
+    "market": "Other Western Europe",
+    "region": "Western Europe",
+    "visit_spend": 973.5517327,
+    "nights_spend": 165.2930524,
+    "visits_total": 1707971.184,
+    "spend_total": 1343450.11
+  },
+  {
+    "market": "Pakistan",
+    "region": "Asia",
+    "visit_spend": 1307.004052,
+    "nights_spend": 190.2007843,
+    "visits_total": 709389.964,
+    "spend_total": 808242.2696
+  },
+  {
+    "market": "Poland",
+    "region": "Eastern Europe",
+    "visit_spend": 532.6229506,
+    "nights_spend": 70.22432471,
+    "visits_total": 6300912.073,
+    "spend_total": 2461847.635
+  },
+  {
+    "market": "Portugal",
+    "region": "Western Europe",
+    "visit_spend": 572.0498268,
+    "nights_spend": 105.026887,
+    "visits_total": 2521382.728,
+    "spend_total": 1168166.346
+  },
+  {
+    "market": "Qatar",
+    "region": "Middle East",
+    "visit_spend": 2890.34881,
+    "nights_spend": 365.8066726,
+    "visits_total": 285978.2892,
+    "spend_total": 786492.5569
+  },
+  {
+    "market": "Romania",
+    "region": "Eastern Europe",
+    "visit_spend": 669.6896188,
+    "nights_spend": 99.16056239,
+    "visits_total": 1733936.277,
+    "spend_total": 956254.0398
+  },
+  {
+    "market": "Russia",
+    "region": "Eastern Europe",
+    "visit_spend": 1058.794267,
+    "nights_spend": 190.9584474,
+    "visits_total": 2251041.349,
+    "spend_total": 2267904.498
+  },
+  {
+    "market": "Saudi Arabia",
+    "region": "Middle East",
+    "visit_spend": 2199.74223,
+    "nights_spend": 342.2929997,
+    "visits_total": 1082679.152,
+    "spend_total": 2933829.44
+  },
+  {
+    "market": "Serbia",
+    "region": "Eastern Europe",
+    "visit_spend": 699.7353047,
+    "nights_spend": 148.7986136,
+    "visits_total": 117241.8548,
+    "spend_total": 79055.23962
+  },
+  {
+    "market": "Singapore",
+    "region": "Asia",
+    "visit_spend": 1147.31681,
+    "nights_spend": 219.1124676,
+    "visits_total": 1418844.888,
+    "spend_total": 1474930.994
+  },
+  {
+    "market": "South Africa",
+    "region": "Africa",
+    "visit_spend": 913.830315,
+    "nights_spend": 158.1579602,
+    "visits_total": 2339150.386,
+    "spend_total": 1896477.973
+  },
+  {
+    "market": "South Korea",
+    "region": "Asia",
+    "visit_spend": 903.4138056,
+    "nights_spend": 142.9131916,
+    "visits_total": 1953817.53,
+    "spend_total": 1110302.791
+  },
+  {
+    "market": "Spain",
+    "region": "Western Europe",
+    "visit_spend": 653.3988985,
+    "nights_spend": 96.06580198,
+    "visits_total": 14254992.03,
+    "spend_total": 6422565.443
+  },
+  {
+    "market": "Sweden",
+    "region": "Western Europe",
+    "visit_spend": 611.9240229,
+    "nights_spend": 122.4003812,
+    "visits_total": 6833951.801,
+    "spend_total": 3317411.749
+  },
+  {
+    "market": "Switzerland",
+    "region": "Western Europe",
+    "visit_spend": 789.3352659,
+    "nights_spend": 176.5972329,
+    "visits_total": 6320596.895,
+    "spend_total": 3643155.768
+  },
+  {
+    "market": "Taiwan",
+    "region": "Asia",
+    "visit_spend": 1266.817992,
+    "nights_spend": 158.930899,
+    "visits_total": 433254.2369,
+    "spend_total": 447622.8593
+  },
+  {
+    "market": "Thailand",
+    "region": "Asia",
+    "visit_spend": 1019.320575,
+    "nights_spend": 176.0458489,
+    "visits_total": 562582.5644,
+    "spend_total": 533373.3701
+  },
+  {
+    "market": "Turkey",
+    "region": "Asia",
+    "visit_spend": 1040.590433,
+    "nights_spend": 178.7338423,
+    "visits_total": 1278246.601,
+    "spend_total": 1146450.977
+  },
+  {
+    "market": "United Arab Emirates",
+    "region": "Middle East",
+    "visit_spend": 1930.998969,
+    "nights_spend": 284.0100903,
+    "visits_total": 1920076.652,
+    "spend_total": 3235625.318
+  },
+  {
+    "market": "USA",
+    "region": "Americas",
+    "visit_spend": 1021.64016,
+    "nights_spend": 148.1171493,
+    "visits_total": 34392219.05,
+    "spend_total": 24921263.06
+  }
+]

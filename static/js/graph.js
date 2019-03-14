@@ -1,5 +1,6 @@
 queue()
     .defer(d3.json, 'data/international_visitors_london.json')
+    .defer(d3.json, 'data/avgs_international_visitors_london.json')
     .await(makeGraphs);
 
     /*Chart colors based on London underground colors 
@@ -18,23 +19,30 @@ queue()
         Waterloo & City - #6ECEB2 (Sea Green/Blue) 1898 6
         
         Order based on year of opening of Tube line (excluding Northern Line due to it being black) */
+    
+        var formatDecimalComma = d3.format(",.2f")
+    var formatMoney = function(d) { return "£" + formatDecimalComma(d);};
+    
 
     var chartColors = d3.scale.ordinal()   
-    .range(['#840B55', '#E89CAE', '#007A33', '#FFCD00', '#6ECEB2 ', '#DA291C', '#A45A2A','#10069F', '#00A3E0', '#7C878E', '#00B2A9', '#78BE20'])
+    .range(['#840B55', '#E89CAE', '#007A33', '#FFCD00', '#6ECEB2', '#DA291C', '#A45A2A','#10069F', '#00A3E0', '#7C878E', '#00B2A9', '#78BE20'])
 
-function makeGraphs(error, visitorData) {
+function makeGraphs(error, visitorData, avgVisitorData) {
     var ndx = crossfilter(visitorData);
+    var ndx2 = crossfilter(avgVisitorData);
 
     
 
 
     /*Call each chart function */
-    show_year_selector (ndx)
+    show_year_selector(ndx)
     show_total_visits_per_region(ndx);
-    show_top_spend_per_market (ndx)
-    show_mode_of_travel (ndx)
-    show_purpose_of_travel (ndx)
-    show_spend_years_qtrs (ndx)
+    show_top_spend_per_market(ndx)
+    show_mode_of_travel(ndx)
+    show_purpose_of_travel(ndx)
+    show_spend_years_qtrs(ndx)
+    show_data_table_visitors(ndx2)
+    show_total_spend_per_region(ndx2)
 
     dc.renderAll();
 
@@ -75,7 +83,7 @@ function show_total_visits_per_region (ndx){
 
 /* Row chart of top 10 visitors */
 
-function show_top_spend_per_market (ndx) {
+function show_top_spend_per_market(ndx) {
      
     var market_spend_dim = ndx.dimension(dc.pluck('market'));
     var spend_group = market_spend_dim.group().reduceSum(dc.pluck('spend'))
@@ -90,29 +98,34 @@ function show_top_spend_per_market (ndx) {
         .data(function (group) { return group.top(10); })
         .elasticX(true)
         .colors(chartColors)
-        
         .xAxis().ticks(5);
         
   
 }
 
 /*Pie Chart showing Mode of travel splits */
-function show_mode_of_travel (ndx){
+function show_mode_of_travel(ndx){
 
+    var modeColors = d3.scale.ordinal()   
+        .domain(['Air', 'Sea', 'Tunnel'])
+        .range(['#E89CAE', '#840B55','#10069F'])
+        
     var mode_dim = ndx.dimension(dc.pluck('mode'));
-    var mode_travel_group = mode_dim.group();
+    var mode_travel_group = mode_dim.group().reduceSum(dc.pluck('visits'));
     
     dc.pieChart('#mode_travel')
         .height(200)
         .width(200)
         .radius(100)
         .transitionDuration(1500)
+        .colors(modeColors)
         .dimension(mode_dim)
         .group(mode_travel_group);
 }
 
+
 /*Stacked bar chart for purpose of travel & spend */
-function show_purpose_of_travel (ndx){
+function show_purpose_of_travel(ndx){
 
     var purposeColors = d3.scale.ordinal()   
         .domain(['Business', 'Holiday', 'Visiting Friends/Family', 'Misc', 'Study'])
@@ -162,7 +175,7 @@ function show_purpose_of_travel (ndx){
 }
 /* Composite Line Graph of spend over the years per quarter */
 
-function show_spend_years_qtrs (ndx){
+function show_spend_years_qtrs(ndx){
 
     var yearsDim = ndx.dimension(dc.pluck('year'));
 
@@ -210,4 +223,45 @@ compositeChart
                         .group(spendByQtr4, 'Oct to Dec'),])
             .brushOn(false)
             .render();
+}
+
+
+/* Data Table with average visit times, avg spend per visit & total figures */
+
+function show_data_table_visitors(ndx2){
+
+    var marketTotalSpend_dim = ndx2.dimension(dc.pluck('market'));
+
+var visitTable = dc.dataTable("#dc-data-table")
+
+visitTable
+        .dimension(marketTotalSpend_dim)
+        .group(function (d) {return 'Country';})
+        .columns([
+            function (d) { return d.market},
+            function (d) { return "£" + d3.format(",.2f")(d.visit_spend)},
+            function (d) { return "£" + d3.format(",.2f")(d.nights_spend)},
+            
+        ])
+        .order(d3.ascending)
+        .size(5)
+}
+
+/*Pie Chart showing Region splits */
+function show_total_spend_per_region(ndx2){
+
+    var spendTotal_dim = ndx2.dimension(dc.pluck('region'));
+    var regionSpendTotal_group = spendTotal_dim.group().reduceSum(dc.pluck('spend_total'));
+    
+    dc.pieChart('#spend_totals_chart')
+        .height(350)
+        .width(500)
+        .radius(100)
+        .transitionDuration(1500)
+        .dimension(spendTotal_dim)
+        .group(regionSpendTotal_group)
+        .legend(dc.legend().y(90).itemHeight(10).gap(10))
+        .renderLabel(false)
+        .colors(chartColors);
+        
 }
