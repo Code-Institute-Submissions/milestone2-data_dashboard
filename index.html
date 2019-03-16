@@ -58,6 +58,7 @@
             <div class="card col-xs-12 col-sm-6">
                 <div class="card-body">
                     <h4 class="card-title">Number of Vistors by Region of Origin</h4>
+                    <h6>The country is grouped in a region based on the United Nations groupings of countries by region.</h6>
                     <h6>*Number in 1000s</h6>
                     <div id="region_totals_chart"></div>
                 </div>
@@ -65,7 +66,7 @@
 
             <div class="card col-xs-12 col-sm-6">
                 <div class="card-body">
-                    <h4 class="card-title">Spend of Top 10 Countries</h4>
+                    <h4 class="card-title">Spend In GBP £ of Top 10 Countries</h4>
                     <h6>*Number in 1000s</h6>
                     <div id="top10Spend"></div>
                 </div>
@@ -79,51 +80,66 @@
         <div class="row">
             <div class="card col-xs-12 col-sm-6">
                 <div class="card-body">
-                    <h4 class="card-title">Spend by Duration & Purpose of Visit</h4>
+                    <h4 class="card-title">Spend in GBP £ by Duration & Purpose of Visit</h4>
                     <div id="stacked_purpose_travel"></div>
                 </div>
             </div>
+           
+
+    
             <div class="card col-xs-12 col-sm-6">
                 <div class="card-body">
-                    <h4 class="card-title">Spend per Year per Quarter</h4>
+                    <h4 class="card-title">Mode of Transport</h4> 
+                        <h6>The mode of transport of how the visitor arrived in London</h6>
+                        <div id="mode_travel"></div>
+                </div>
+            </div>
+            
+    <div class="container">
+        <div class="row">
+            <div class="card col-xs-12">
+                <div class="card-body">
+                    <h4 class="card-title">Spend in GBP £ per Year per Quarter</h4>
                     <div id='line_spend_years_qtr'></div>
                 </div>
             </div>
 
         </div> 
     </div>
+        </div>
+    </div>
 
-    <!-- <div class="container">
-        <div class="row">
-            <div class="card col-xs-12 col-sm-6">
-                <div class="card-body">
-                    <h4 class="card-title">Mode of Transport</h4> 
-                        <div id="mode_travel"></div>
-                </div>
-            </div> -->
-            
     <!-- Pie Chart and data table -->
     <div class="container">
         <div class="row">
             <div class="card col-xs-12 col-sm-6">
                 <div class="card-body">
-                    <h4 class="card-title">Total Spend by Region</h4> 
+                    <h4 class="card-title">Total Spend in GBP £ by Region</h4> 
+                    
+                        <div class="reset reset-button">
+                            <a href="javascript:dc.filterAll(); dc.renderAll();" data-placement="right">Reset</a>
+                         </div>
                         <div id="spend_totals_chart"></div>
                 </div>
             </div>
             
             <div class="card col-xs-12 col-sm-6">
                 <div class="card-body">
-                    <h4 class="card-title">Average Spend by visit & nights</h4> 
+                    <h4 class="card-title">Average Spend in GBP £ per visit & per night</h4> 
+                    
                     <table id="dc-data-table" class="table data_table">
                         <thead>
                             <tr class="table-headings">
                                 <th>Country</th>
                                 <th>Average Spend per Visit</th>
                                 <th>Average Spend per Night</th>
-                                
-                            </tr>
+                             </tr>
                         </thead>
+                        <div id="paging">
+                                Showing <span id="begin"></span> - <span id="end"></span> of <span id="size"></span> <span id="totalsize"></span>
+                                <input id="last" class="btn" type="Button" value="Last" onclick="javascript:last()" />
+                                <input id="next" class="btn" type="button" value="Next" onclick="javascript:next()"/>
+                              </div>
                     </table>
                 </div>    
             </div>

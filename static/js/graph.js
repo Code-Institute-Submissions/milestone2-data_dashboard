@@ -20,7 +20,7 @@ queue()
         
         Order based on year of opening of Tube line (excluding Northern Line due to it being black) */
     
-        var formatDecimalComma = d3.format(",.2f")
+    var formatDecimalComma = d3.format(",.2f")
     var formatMoney = function(d) { return "£" + formatDecimalComma(d);};
     
 
@@ -114,8 +114,8 @@ function show_mode_of_travel(ndx){
     var mode_travel_group = mode_dim.group().reduceSum(dc.pluck('visits'));
     
     dc.pieChart('#mode_travel')
-        .height(200)
-        .width(200)
+        .height(350)
+        .width(500)
         .radius(100)
         .transitionDuration(1500)
         .colors(modeColors)
@@ -143,7 +143,8 @@ function show_purpose_of_travel(ndx){
     function spendByPurpose(purpose) {
         return function (d) {
             if (d.purpose === purpose) {
-                return +d.spend;
+                return d3.format(",.2f")(+d.spend)
+                // return +d.spend;
             } else {
                 return 0;
             }
@@ -157,6 +158,7 @@ function show_purpose_of_travel(ndx){
         .width(480)
         .height(350)
         .margins({ top: 10, right: 50, bottom: 40, left: 50 })
+        
         .dimension(durStay_dim)
         .colors(purposeColors)
         .group(spendByPurpose_business, 'Business')
@@ -164,8 +166,9 @@ function show_purpose_of_travel(ndx){
         .stack(spendByPurpose_vfr, 'Visiting Friends/Family')
         .stack(spendByPurpose_misc, 'Misc')
         .stack(spendByPurpose_study, 'Study')
-        .x(d3.scale.ordinal())
+        .x(d3.scale.ordinal().domain(["1-3 Nights","4-7  nights","8-14 nights","15+  nights"]))
         .xUnits(dc.units.ordinal)
+        
         .xAxisLabel('Duration of Stay')
         .yAxisLabel('Spend in 1000s')
         .elasticY(true)
@@ -199,7 +202,7 @@ function show_spend_years_qtrs(ndx){
     var compositeChart = dc.compositeChart("#line_spend_years_qtr");
 
 compositeChart 
-            .width(500)
+            .width(1100)
             .height(400)
             .dimension(yearsDim)
             .renderHorizontalGridLines(true)
@@ -226,7 +229,7 @@ compositeChart
 }
 
 
-/* Data Table with average visit times, avg spend per visit & total figures */
+/* Data Table with average spend per visit & per night */
 
 function show_data_table_visitors(ndx2){
 
@@ -237,15 +240,19 @@ var visitTable = dc.dataTable("#dc-data-table")
 visitTable
         .dimension(marketTotalSpend_dim)
         .group(function (d) {return 'Country';})
+        .showGroups(false)
         .columns([
             function (d) { return d.market},
             function (d) { return "£" + d3.format(",.2f")(d.visit_spend)},
-            function (d) { return "£" + d3.format(",.2f")(d.nights_spend)},
-            
+            function (d) { return "£" + d3.format(",.2f")(d.nights_spend)}, 
         ])
         .order(d3.ascending)
-        .size(5)
+        .size(10);
+        
+        
+        
 }
+
 
 /*Pie Chart showing Region splits */
 function show_total_spend_per_region(ndx2){
@@ -262,6 +269,8 @@ function show_total_spend_per_region(ndx2){
         .group(regionSpendTotal_group)
         .legend(dc.legend().y(90).itemHeight(10).gap(10))
         .renderLabel(false)
-        .colors(chartColors);
+        .colors(chartColors)
+        .innerRadius(40);
         
 }
+
