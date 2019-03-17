@@ -12,14 +12,23 @@
 
 
 a {
-    padding-left: 40px;
-    margin-left: 20px;
-    color: #000000;
+    padding-left: 20px;
+    margin-left: 10px;
+    color: #DA291C;
 }
+
+select {
+    margin-left:20px;
+    border-color: #6ECEB2; 
+}
+
+#year_select {
+    padding-bottom: 20px;
+}
+/* Charts */
 
 .chart-title {
    font-weight: bold; 
-
 }
 
 th {
@@ -27,3 +36,7 @@ th {
     font-weight: bold;
     background-color: rgb(161, 167, 172);
 }
+
+
+
+

@@ -47,20 +47,21 @@
             <div class="row">
                 <div id="year_select">Select Year </div>
                 <div class="reset reset-button">
-                         <a href="javascript:dc.filterAll(); dc.renderAll();" data-placement="right">Reset</a>
+                         <a href="javascript:dc.filterAll(); dc.renderAll();" data-placement="center">Reset All</a>
                 </div>
             </div>
         </div>
-
+    </section>
       <!-- Pie Charts & Top 10 Country chart --> 
     <div class="container">
         <div class="row">
             <div class="card col-xs-12 col-sm-6">
                 <div class="card-body">
                     <h4 class="card-title">Number of Vistors by Region of Origin</h4>
-                    <h6>The country is grouped in a region based on the United Nations groupings of countries by region.</h6>
+                    
                     <h6>*Number in 1000s</h6>
                     <div id="region_totals_chart"></div>
+                    <h6>**Groupings based on United Nations Regional Groupings</h6>
                 </div>
             </div>
 
@@ -90,8 +91,10 @@
             <div class="card col-xs-12 col-sm-6">
                 <div class="card-body">
                     <h4 class="card-title">Mode of Transport</h4> 
-                        <h6>The mode of transport of how the visitor arrived in London</h6>
+                        
                         <div id="mode_travel"></div>
+                        <h6>The mode of transport of visitors arrival in London</h6>
+                        <div>Note: A large percentage of Non-European International visitors arrive via the Continent</div>
                 </div>
             </div>
             
@@ -115,7 +118,6 @@
             <div class="card col-xs-12 col-sm-6">
                 <div class="card-body">
                     <h4 class="card-title">Total Spend in GBP £ by Region</h4> 
-                    
                         <div class="reset reset-button">
                             <a href="javascript:dc.filterAll(); dc.renderAll();" data-placement="right">Reset</a>
                          </div>

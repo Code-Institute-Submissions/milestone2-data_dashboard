@@ -22,6 +22,8 @@ queue()
     
     var formatDecimalComma = d3.format(",.2f")
     var formatMoney = function(d) { return "£" + formatDecimalComma(d);};
+    // var dateFormat = d3.time.format("%Y")
+
     
 
     var chartColors = d3.scale.ordinal()   
@@ -30,6 +32,8 @@ queue()
 function makeGraphs(error, visitorData, avgVisitorData) {
     var ndx = crossfilter(visitorData);
     var ndx2 = crossfilter(avgVisitorData);
+    var parseDate = d3.time.format("%Y").parse;
+       
 
     
 
@@ -116,11 +120,17 @@ function show_mode_of_travel(ndx){
     dc.pieChart('#mode_travel')
         .height(350)
         .width(500)
-        .radius(100)
+        .radius(200)
         .transitionDuration(1500)
         .colors(modeColors)
         .dimension(mode_dim)
-        .group(mode_travel_group);
+        .group(mode_travel_group)
+        .externalLabels(30)
+        .externalRadiusPadding(50)
+        .drawPaths(true)
+        .minAngleForLabel(0)
+        .innerRadius(90);;
+        
 }
 
 
@@ -168,9 +178,8 @@ function show_purpose_of_travel(ndx){
         .stack(spendByPurpose_study, 'Study')
         .x(d3.scale.ordinal().domain(["1-3 Nights","4-7  nights","8-14 nights","15+  nights"]))
         .xUnits(dc.units.ordinal)
-        
         .xAxisLabel('Duration of Stay')
-        .yAxisLabel('Spend in 1000s')
+        .yAxisLabel('Spend GBP £ in 1000s')
         .elasticY(true)
         .legend(dc.legend().x(340).y(20).itemHeight(10).gap(5).itemWidth(20));
 
@@ -210,6 +219,7 @@ compositeChart
             .x(d3.scale.linear().domain(['2002','2018']))
             .elasticY(true)
             .yAxisLabel("Spend in 1000s")
+            .xAxisLabel("Year")
             .legend(dc.legend().x(70).y(20).itemHeight(10).gap(5).itemWidth(20))
             .compose([
                     dc.lineChart(compositeChart)
@@ -270,7 +280,7 @@ function show_total_spend_per_region(ndx2){
         .legend(dc.legend().y(90).itemHeight(10).gap(10))
         .renderLabel(false)
         .colors(chartColors)
-        .innerRadius(40);
+        .innerRadius(50);
         
 }
 
