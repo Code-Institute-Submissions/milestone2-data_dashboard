@@ -38,6 +38,9 @@
 
     <!-- Year selector and reset button -->
     <section>
+        <button class="reset reset-button" id="myBtn" title="Reset">
+            <a href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
+        </button>
         <div class="container">
             <div class="col-12 col-sm">
                 <h1 class='page-title'>International Visitors to London</h1>
@@ -46,18 +49,15 @@
         <div class="container">
             <div class="row">
                 <div id="year_select">Select Year </div>
-                <div class="reset reset-button">
-                         <a href="javascript:dc.filterAll(); dc.renderAll();" data-placement="center">Reset All</a>
-                </div>
             </div>
         </div>
     </section>
       <!-- Pie Charts & Top 10 Country chart --> 
     <div class="container">
         <div class="row">
-            <div class="card col-xs-12 col-sm-6">
-                <div class="card-body">
-                    <h4 class="card-title">Number of Vistors by Region of Origin</h4>
+            <div class="card border-info col-xs-12 col-sm-6">
+                <div class="card-body chart-container">
+                    <h4 class="card-header">Number of Vistors by Region of Origin</h4>
                     
                     <h6>*Number in 1000s</h6>
                     <div id="region_totals_chart"></div>
@@ -65,8 +65,8 @@
                 </div>
             </div>
 
-            <div class="card col-xs-12 col-sm-6">
-                <div class="card-body">
+            <div class="card border-info col-xs-12 col-sm-6">
+                <div class="card-body chart-container">
                     <h4 class="card-title">Spend In GBP £ of Top 10 Countries</h4>
                     <h6>*Number in 1000s</h6>
                     <div id="top10Spend"></div>
@@ -79,8 +79,8 @@
     <!-- Stacked Chart for spend by duration & purpose of visit  & Composite Line chart for spend over the quarters & years -->
     <div class="container">
         <div class="row">
-            <div class="card col-xs-12 col-sm-6">
-                <div class="card-body">
+            <div class="card border-info col-xs-12 col-sm-6">
+                <div class="card-body chart-container">
                     <h4 class="card-title">Spend in GBP £ by Duration & Purpose of Visit</h4>
                     <div id="stacked_purpose_travel"></div>
                 </div>
@@ -88,8 +88,8 @@
            
 
     
-            <div class="card col-xs-12 col-sm-6">
-                <div class="card-body">
+            <div class="card border-info col-xs-12 col-sm-6">
+                <div class="card-body chart-container">
                     <h4 class="card-title">Mode of Transport</h4> 
                         
                         <div id="mode_travel"></div>
@@ -100,8 +100,8 @@
             
     <div class="container">
         <div class="row">
-            <div class="card col-xs-12">
-                <div class="card-body">
+            <div class="card border-info col-xs-12">
+                <div class="card-body chart-container">
                     <h4 class="card-title">Spend in GBP £ per Year per Quarter</h4>
                     <div id='line_spend_years_qtr'></div>
                 </div>
@@ -115,18 +115,18 @@
     <!-- Pie Chart and data table -->
     <div class="container">
         <div class="row">
-            <div class="card col-xs-12 col-sm-6">
-                <div class="card-body">
+            <div class="card border-info col-xs-12 col-sm-6">
+                <div class="card-body chart-container">
                     <h4 class="card-title">Total Spend in GBP £ by Region</h4> 
-                        <div class="reset reset-button">
+                        <!-- <div class="reset reset-button">
                             <a href="javascript:dc.filterAll(); dc.renderAll();" data-placement="right">Reset</a>
-                         </div>
+                         </div> -->
                         <div id="spend_totals_chart"></div>
                 </div>
             </div>
             
-            <div class="card col-xs-12 col-sm-6">
-                <div class="card-body">
+            <div class="card border-info col-xs-12 col-sm-6">
+                <div class="card-body chart-container">
                     <h4 class="card-title">Average Spend in GBP £ per visit & per night</h4> 
                     
                     <table id="dc-data-table" class="table data_table">

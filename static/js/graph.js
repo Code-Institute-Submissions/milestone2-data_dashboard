@@ -1,3 +1,21 @@
+/* Scrolling reset button */
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+    document.getElementById("myBtn").style.display = "block";
+  } else {
+    document.getElementById("myBtn").style.display = "none";
+  }
+}
+
+/* When the user clicks on the button, resets all charts/graphs */
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+
 queue()
     .defer(d3.json, 'data/international_visitors_london.json')
     .defer(d3.json, 'data/avgs_international_visitors_london.json')
@@ -23,20 +41,17 @@ queue()
     var formatDecimalComma = d3.format(",.2f")
     var formatMoney = function(d) { return "£" + formatDecimalComma(d);};
     // var dateFormat = d3.time.format("%Y")
+    var parseDate = d3.time.format("%Y").parse;
 
     
 
     var chartColors = d3.scale.ordinal()   
-    .range(['#840B55', '#E89CAE', '#007A33', '#FFCD00', '#6ECEB2', '#DA291C', '#A45A2A','#10069F', '#00A3E0', '#7C878E', '#00B2A9', '#78BE20'])
+        .range(['#840B55', '#E89CAE', '#007A33', '#FFCD00', '#6ECEB2', '#DA291C', '#A45A2A','#10069F', '#00A3E0', '#7C878E', '#00B2A9', '#78BE20'])
 
 function makeGraphs(error, visitorData, avgVisitorData) {
     var ndx = crossfilter(visitorData);
     var ndx2 = crossfilter(avgVisitorData);
-    var parseDate = d3.time.format("%Y").parse;
-       
-
     
-
 
     /*Call each chart function */
     show_year_selector(ndx)
@@ -51,6 +66,8 @@ function makeGraphs(error, visitorData, avgVisitorData) {
     dc.renderAll();
 
 }
+
+
 
 /* Dropdown menu for year selector */
 
@@ -168,7 +185,6 @@ function show_purpose_of_travel(ndx){
         .width(480)
         .height(350)
         .margins({ top: 10, right: 50, bottom: 40, left: 50 })
-        
         .dimension(durStay_dim)
         .colors(purposeColors)
         .group(spendByPurpose_business, 'Business')
@@ -273,14 +289,17 @@ function show_total_spend_per_region(ndx2){
     dc.pieChart('#spend_totals_chart')
         .height(350)
         .width(500)
-        .radius(100)
+        .radius(120)
         .transitionDuration(1500)
         .dimension(spendTotal_dim)
         .group(regionSpendTotal_group)
         .legend(dc.legend().y(90).itemHeight(10).gap(10))
         .renderLabel(false)
         .colors(chartColors)
-        .innerRadius(50);
+        .innerRadius(80);
         
 }
+
+
+// modular operator to work out pagination page Offset
 
