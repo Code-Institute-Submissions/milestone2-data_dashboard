@@ -40,9 +40,7 @@ queue()
     
     var formatDecimalComma = d3.format(",.2f")
     var formatMoney = function(d) { return "£" + formatDecimalComma(d);};
-    // var dateFormat = d3.time.format("%Y")
-    var parseDate = d3.time.format("%Y").parse;
-
+    var dateFormat = d3.time.format("%Y")
     
 
     var chartColors = d3.scale.ordinal()   
@@ -51,6 +49,7 @@ queue()
 function makeGraphs(error, visitorData, avgVisitorData) {
     var ndx = crossfilter(visitorData);
     var ndx2 = crossfilter(avgVisitorData);
+    
     
 
     /*Call each chart function */
@@ -111,6 +110,7 @@ function show_top_spend_per_market(ndx) {
     
 
     dc.rowChart('#top10Spend')
+        
         .height(350)
         .width(500)
         .dimension(market_spend_dim)
@@ -231,7 +231,7 @@ compositeChart
             .height(400)
             .dimension(yearsDim)
             .renderHorizontalGridLines(true)
-            .margins({ top: 10, right: 50, bottom: 30, left: 50 })
+            .margins({ top: 10, right: 10, bottom: 30, left: 10})
             .x(d3.scale.linear().domain(['2002','2018']))
             .elasticY(true)
             .yAxisLabel("Spend in 1000s")
@@ -273,10 +273,18 @@ visitTable
             function (d) { return "£" + d3.format(",.2f")(d.nights_spend)}, 
         ])
         .order(d3.ascending)
-        .size(10);
+        .size(Infinity)
         
+    
         
-        
+}
+var resultStart = 0; var resultEnd =21;
+function displayResult() {
+
+    document.getElementById("start").innerHTML = resultStart;
+    document.getElementById("end").innerHTML = resultStart + resultEnd-1;
+
+    document.getElementById("totalSize").innerHTML = ndx2.size();
 }
 
 
