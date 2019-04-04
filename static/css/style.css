@@ -84,10 +84,19 @@ th {
       border: 1px solid black;
   } */
 
+.footer {
+    text-align: center;
+    font-size: 0.8em;
+}
+
 
  /* Media Queries */
 
+ @media (max-width: 552px) {
+    .chart-container {
+       overflow: hidden;
+       overflow-x: scroll;
+    }
+ }
+  
  
-
-
-

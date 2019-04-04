@@ -28,13 +28,15 @@
 </head>
 <body>
     <header>
-        
+        <script> alert("This website is best viewed in landscape mode on a mobile device"); </script>
+       
         <div class="container">
             <img src="images/london_skyline.jpg" alt="London Skyline" class="header-image">
         
         
         </div>
     </header>
+
 
     <!-- Year selector and reset button -->
     <section>
@@ -69,7 +71,9 @@
                 <div class="card-body">
                     <h4 class="card-title">Spend In GBP £ of Top 10 Countries</h4>
                     <h6>*Number in 1000s</h6>
-                    <div id="top10Spend"></div>
+                    <div class="chart-container">
+                        <div id="top10Spend"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -82,7 +86,9 @@
             <div class="card border-info col-xs-12 col-lg-6">
                 <div class="card-body">
                     <h4 class="card-title">Spend in GBP £ by Duration & Purpose of Visit</h4>
-                    <div id="stacked_purpose_travel"></div>
+                    <div class="chart-container">
+                        <div id="stacked_purpose_travel"></div>
+                    </div>
                 </div>
             </div>
            
@@ -104,7 +110,9 @@
             <div class="card border-info col-xs-12 col-lg-6">
                 <div class="card-body">
                     <h4 class="card-title">Spend in GBP £ per Year per Quarter</h4>
-                    <div id='line_spend_years_qtr'></div>
+                    <div class="chart-container">
+                        <div id='line_spend_years_qtr'></div>
+                    </div>
                 </div>
             </div>
 
@@ -144,6 +152,13 @@
         </div>
     </div> -->
     </section>
+    <footer class="container footer">
+        <div class="row">
+            <div class="col-12">
+                <p>Data Dashboard created by Eileen Peacock<a href="" target="_blank"><i class="fa fa-github"></i></a></p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html> 
 
