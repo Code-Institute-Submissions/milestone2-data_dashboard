@@ -59,8 +59,8 @@ function makeGraphs(error, visitorData, avgVisitorData) {
     show_mode_of_travel(ndx)
     show_purpose_of_travel(ndx)
     show_spend_years_qtrs(ndx)
-    show_data_table_visitors(ndx2)
-    show_total_spend_per_region(ndx2)
+    // show_data_table_visitors(ndx2)
+    show_total_spend_per_region(ndx)
 
     dc.renderAll();
 
@@ -90,14 +90,13 @@ function show_total_visits_per_region (ndx){
     dc.pieChart('#region_totals_chart')
         .height(350)
         .width(500)
-        .radius(100)
+        .radius(120)
         .transitionDuration(1500)
         .dimension(name_dim)
         .group(region_group)
         .legend(dc.legend().y(90).itemHeight(10).gap(10))
         .renderLabel(false)
-        .colors(chartColors)
-        ;
+        .colors(chartColors);
         
 }
 
@@ -112,7 +111,7 @@ function show_top_spend_per_market(ndx) {
     dc.rowChart('#top10Spend')
         
         .height(350)
-        .width(500)
+        .width(480)
         .dimension(market_spend_dim)
         .group(spend_group)
         .gap(5)
@@ -137,16 +136,23 @@ function show_mode_of_travel(ndx){
     dc.pieChart('#mode_travel')
         .height(350)
         .width(500)
-        .radius(200)
+        .radius(150)
         .transitionDuration(1500)
         .colors(modeColors)
         .dimension(mode_dim)
         .group(mode_travel_group)
-        .externalLabels(30)
-        .externalRadiusPadding(50)
+        // .externalLabels(50)
+        .externalRadiusPadding(10)
         .drawPaths(true)
-        .minAngleForLabel(0)
-        .innerRadius(90);;
+        // .minAngleForLabel(20)
+        .innerRadius(50)
+        .on('pretransition', function(chart) {
+            chart.selectAll('text.pie-slice').text(function(d) {
+                return d.data.key + ' ' + dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
+            });
+        })
+        ;
+        
         
 }
 
@@ -155,7 +161,7 @@ function show_mode_of_travel(ndx){
 function show_purpose_of_travel(ndx){
 
     var purposeColors = d3.scale.ordinal()   
-        .domain(['Business', 'Holiday', 'Visiting Friends/Family', 'Misc', 'Study'])
+        .domain(['Business', 'Holiday', 'Friends/Family', 'Misc', 'Study'])
         .range(['#10069F', '#E89CAE', '#840B55', '#00A3E0', '#007A33'])
         
 
@@ -183,21 +189,22 @@ function show_purpose_of_travel(ndx){
     var stackedChart = dc.barChart('#stacked_purpose_travel');
     stackedChart    
         .width(480)
-        .height(350)
+        .height(400)
         .margins({ top: 10, right: 50, bottom: 40, left: 50 })
         .dimension(durStay_dim)
         .colors(purposeColors)
         .group(spendByPurpose_business, 'Business')
         .stack(spendByPurpose_holiday, 'Holiday')
-        .stack(spendByPurpose_vfr, 'Visiting Friends/Family')
-        .stack(spendByPurpose_misc, 'Misc')
         .stack(spendByPurpose_study, 'Study')
+        .stack(spendByPurpose_misc, 'Misc')
+        .stack(spendByPurpose_vfr, 'Friends/Family')
         .x(d3.scale.ordinal().domain(["1-3 Nights","4-7  nights","8-14 nights","15+  nights"]))
         .xUnits(dc.units.ordinal)
         .xAxisLabel('Duration of Stay')
         .yAxisLabel('Spend GBP £ in 1000s')
         .elasticY(true)
-        .legend(dc.legend().x(340).y(20).itemHeight(10).gap(5).itemWidth(20));
+        .legend(dc.legend().x(70).y(0).horizontal(1).gap(5).itemHeight(10));
+        
 
     
 }
@@ -227,11 +234,11 @@ function show_spend_years_qtrs(ndx){
     var compositeChart = dc.compositeChart("#line_spend_years_qtr");
 
 compositeChart 
-            .width(1100)
+            .width(480)
             .height(400)
             .dimension(yearsDim)
             .renderHorizontalGridLines(true)
-            .margins({ top: 10, right: 10, bottom: 30, left: 10})
+            .margins({ top: 10, right: 50, bottom: 30, left: 50})
             .x(d3.scale.linear().domain(['2002','2018']))
             .elasticY(true)
             .yAxisLabel("Spend in 1000s")
@@ -257,47 +264,47 @@ compositeChart
 
 /* Data Table with average spend per visit & per night */
 
-function show_data_table_visitors(ndx2){
+// function show_data_table_visitors(ndx2){
 
-    var marketTotalSpend_dim = ndx2.dimension(dc.pluck('market'));
+//     var marketTotalSpend_dim = ndx2.dimension(dc.pluck('market'));
 
-var visitTable = dc.dataTable("#dc-data-table")
+// var visitTable = dc.dataTable("#dc-data-table")
 
-visitTable
-        .dimension(marketTotalSpend_dim)
-        .group(function (d) {return 'Country';})
-        .showGroups(false)
-        .columns([
-            function (d) { return d.market},
-            function (d) { return "£" + d3.format(",.2f")(d.visit_spend)},
-            function (d) { return "£" + d3.format(",.2f")(d.nights_spend)}, 
-        ])
-        .order(d3.ascending)
-        .size(Infinity)
+// visitTable
+//         .dimension(marketTotalSpend_dim)
+//         .group(function (d) {return 'Country';})
+//         .showGroups(false)
+//         .columns([
+//             function (d) { return d.market},
+//             function (d) { return "£" + d3.format(",.2f")(d.visit_spend)},
+//             function (d) { return "£" + d3.format(",.2f")(d.nights_spend)}, 
+//         ])
+//         .order(d3.ascending)
+//         .size(Infinity)
         
     
         
-}
-var resultStart = 0; var resultEnd =21;
-function displayResult() {
+// }
+// var resultStart = 0; var resultEnd =21;
+// function displayResult() {
 
-    document.getElementById("start").innerHTML = resultStart;
-    document.getElementById("end").innerHTML = resultStart + resultEnd-1;
+//     document.getElementById("start").innerHTML = resultStart;
+//     document.getElementById("end").innerHTML = resultStart + resultEnd-1;
 
-    document.getElementById("totalSize").innerHTML = ndx2.size();
-}
+//     document.getElementById("totalSize").innerHTML = ndx2.size();
+// }
 
 
 /*Pie Chart showing Region splits */
-function show_total_spend_per_region(ndx2){
+function show_total_spend_per_region(ndx){
 
-    var spendTotal_dim = ndx2.dimension(dc.pluck('region'));
-    var regionSpendTotal_group = spendTotal_dim.group().reduceSum(dc.pluck('spend_total'));
+    var spendTotal_dim = ndx.dimension(dc.pluck('region'));
+    var regionSpendTotal_group = spendTotal_dim.group().reduceSum(dc.pluck('spend'));
     
     dc.pieChart('#spend_totals_chart')
         .height(350)
         .width(500)
-        .radius(120)
+        .radius(150)
         .transitionDuration(1500)
         .dimension(spendTotal_dim)
         .group(regionSpendTotal_group)
@@ -309,5 +316,5 @@ function show_total_spend_per_region(ndx2){
 }
 
 
-// modular operator to work out pagination page Offset
+
 

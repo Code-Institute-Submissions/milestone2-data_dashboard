@@ -57,7 +57,7 @@ th {
     background-color: rgb(161, 167, 172);
 }
 
-  /* Data Table */
+  /* Data Table
 
   tr:nth-child(even){
       background-color: #f2f2f2
@@ -77,10 +77,13 @@ th {
   #dataTable {
       text-align: center;
       width:65%;
-      ##border: 1px solid black;
-  }
+      border: 1px solid black;
+  } */
+
 
  /* Media Queries */
+
+ 
 
 
 
