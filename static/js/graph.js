@@ -92,6 +92,9 @@ function show_total_visits_per_region (ndx){
         .width(500)
         .radius(120)
         .transitionDuration(1500)
+        .title(function(d) {
+			return `${d.key}: ${d3.format(",.4f")(d.value)} `;
+		})
         .dimension(name_dim)
         .group(region_group)
         .legend(dc.legend().y(90).itemHeight(10).gap(10))
@@ -114,6 +117,9 @@ function show_top_spend_per_market(ndx) {
         .width(480)
         .dimension(market_spend_dim)
         .group(spend_group)
+        .title(function(d) {
+			return `${d.key}: £${d3.format(",.4f")(d.value)} `;
+		})
         .gap(5)
         .data(function (group) { return group.top(10); })
         .elasticX(true)
@@ -140,6 +146,9 @@ function show_mode_of_travel(ndx){
         .transitionDuration(1500)
         .colors(modeColors)
         .dimension(mode_dim)
+        .title(function(d) {
+			return `${d.key}: ${d3.format(",.4f")(d.value)} `;
+		})
         .group(mode_travel_group)
         // .externalLabels(50)
         .externalRadiusPadding(10)
@@ -176,8 +185,7 @@ function show_purpose_of_travel(ndx){
     function spendByPurpose(purpose) {
         return function (d) {
             if (d.purpose === purpose) {
-                return d3.format(",.2f")(+d.spend)
-                // return +d.spend;
+                return +d.spend;
             } else {
                 return 0;
             }
@@ -190,9 +198,12 @@ function show_purpose_of_travel(ndx){
     stackedChart    
         .width(480)
         .height(400)
-        .margins({ top: 10, right: 50, bottom: 40, left: 50 })
+        .margins({ top: 20, right: 50, bottom: 40, left: 50 })
         .dimension(durStay_dim)
         .colors(purposeColors)
+        .title(function(d) {
+			return `${d.key}: £${d3.format(",.4f")(d.value)} `;
+		})
         .group(spendByPurpose_business, 'Business')
         .stack(spendByPurpose_holiday, 'Holiday')
         .stack(spendByPurpose_study, 'Study')
@@ -238,11 +249,14 @@ compositeChart
             .height(400)
             .dimension(yearsDim)
             .renderHorizontalGridLines(true)
-            .margins({ top: 10, right: 50, bottom: 30, left: 50})
+            .margins({ top: 10, right: 50, bottom: 40, left: 50})
             .x(d3.scale.linear().domain(['2002','2018']))
             .elasticY(true)
             .yAxisLabel("Spend in 1000s")
             .xAxisLabel("Year")
+            .title(function(d) {
+                return `${d.key}: £${d3.format(",.4f")(d.value)} `;
+            })
             .legend(dc.legend().x(70).y(20).itemHeight(10).gap(5).itemWidth(20))
             .compose([
                     dc.lineChart(compositeChart)
@@ -260,6 +274,33 @@ compositeChart
             .brushOn(false)
             .render();
 }
+
+
+
+/*Pie Chart showing Region splits */
+function show_total_spend_per_region(ndx){
+
+    var spendTotal_dim = ndx.dimension(dc.pluck('region'));
+    var regionSpendTotal_group = spendTotal_dim.group().reduceSum(dc.pluck('spend'));
+    
+    dc.pieChart('#spend_totals_chart')
+        .height(350)
+        .width(500)
+        .radius(150)
+        .transitionDuration(1500)
+        .dimension(spendTotal_dim)
+        .group(regionSpendTotal_group)
+        .title(function(d) {
+			return `${d.key}: £${d3.format(",.4f")(d.value)} `;
+		})
+        .legend(dc.legend().y(90).itemHeight(10).gap(10))
+        .renderLabel(false)
+        .colors(chartColors)
+        .innerRadius(80);
+        
+}
+
+
 
 
 /* Data Table with average spend per visit & per night */
@@ -293,28 +334,3 @@ compositeChart
 
 //     document.getElementById("totalSize").innerHTML = ndx2.size();
 // }
-
-
-/*Pie Chart showing Region splits */
-function show_total_spend_per_region(ndx){
-
-    var spendTotal_dim = ndx.dimension(dc.pluck('region'));
-    var regionSpendTotal_group = spendTotal_dim.group().reduceSum(dc.pluck('spend'));
-    
-    dc.pieChart('#spend_totals_chart')
-        .height(350)
-        .width(500)
-        .radius(150)
-        .transitionDuration(1500)
-        .dimension(spendTotal_dim)
-        .group(regionSpendTotal_group)
-        .legend(dc.legend().y(90).itemHeight(10).gap(10))
-        .renderLabel(false)
-        .colors(chartColors)
-        .innerRadius(80);
-        
-}
-
-
-
-
