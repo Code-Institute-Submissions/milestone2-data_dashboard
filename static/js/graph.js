@@ -59,7 +59,6 @@ function makeGraphs(error, visitorData, avgVisitorData) {
     show_mode_of_travel(ndx)
     show_purpose_of_travel(ndx)
     show_spend_years_qtrs(ndx)
-    // show_data_table_visitors(ndx2)
     show_total_spend_per_region(ndx)
 
     dc.renderAll();
@@ -150,10 +149,8 @@ function show_mode_of_travel(ndx){
 			return `${d.key}: ${d3.format(",.4f")(d.value)} `;
 		})
         .group(mode_travel_group)
-        // .externalLabels(50)
         .externalRadiusPadding(10)
         .drawPaths(true)
-        // .minAngleForLabel(20)
         .innerRadius(50)
         .on('pretransition', function(chart) {
             chart.selectAll('text.pie-slice').text(function(d) {
@@ -300,37 +297,3 @@ function show_total_spend_per_region(ndx){
         
 }
 
-
-
-
-/* Data Table with average spend per visit & per night */
-
-// function show_data_table_visitors(ndx2){
-
-//     var marketTotalSpend_dim = ndx2.dimension(dc.pluck('market'));
-
-// var visitTable = dc.dataTable("#dc-data-table")
-
-// visitTable
-//         .dimension(marketTotalSpend_dim)
-//         .group(function (d) {return 'Country';})
-//         .showGroups(false)
-//         .columns([
-//             function (d) { return d.market},
-//             function (d) { return "£" + d3.format(",.2f")(d.visit_spend)},
-//             function (d) { return "£" + d3.format(",.2f")(d.nights_spend)}, 
-//         ])
-//         .order(d3.ascending)
-//         .size(Infinity)
-        
-    
-        
-// }
-// var resultStart = 0; var resultEnd =21;
-// function displayResult() {
-
-//     document.getElementById("start").innerHTML = resultStart;
-//     document.getElementById("end").innerHTML = resultStart + resultEnd-1;
-
-//     document.getElementById("totalSize").innerHTML = ndx2.size();
-// }

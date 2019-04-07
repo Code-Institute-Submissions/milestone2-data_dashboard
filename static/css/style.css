@@ -55,34 +55,11 @@ h4.card-title {
    font-weight: bold;
 }
 
-th {
+/* th {
     font-size: 0.7em;
     font-weight: bold;
     background-color: rgb(161, 167, 172);
-}
-
-  /* Data Table
-
-  tr:nth-child(even){
-      background-color: #f2f2f2
-}
-
-.data_table {
-    text-align: center;
-    
-}
-
-#pagination, #dataTable-div{
-    width: 100%;
-    text-align: center;
-    padding: 0 0 5px 0;
-  }
-
-  #dataTable {
-      text-align: center;
-      width:65%;
-      border: 1px solid black;
-  } */
+} */
 
 .footer {
     text-align: center;
