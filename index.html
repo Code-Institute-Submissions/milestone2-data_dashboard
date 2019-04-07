@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link rel="stylesheet" href="static/css/dc.min.css" type="text/css" />
+     <!-- Github logo in footer-->
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    
     <!-- Custom styling-->
     <link rel="stylesheet" href="static/css/style.css" type="text/css" />
-
-    
+   
     <!-- JavaScript files-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
@@ -28,8 +30,8 @@
 </head>
 <body>
     <header>
-        <script> alert("On a mobile device, this website is best viewed in landscape mode"); </script>
-       
+        <!-- <script> alert("On a mobile device, this website is best viewed in landscape mode"); </script>
+        -->
         <div class="container">
             <img src="images/london_skyline.jpg" alt="London Skyline" class="header-image">
         
@@ -57,19 +59,20 @@
       <!-- Pie Charts & Top 10 Country chart --> 
     <div class="container">
         <div class="row">
-            <div class=" col-xs-12 col-lg-6">
-                <div class="">
-                    <h4 class="title">Number of Vistors by Region of Origin</h4>
+            <div class="card border-info col-xs-12 col-lg-6">
+                <div class="card-body">
+                    <h4 class="card-title">Number of Vistors by Region of Origin</h4>
                     
                     <h6>*Number in 1000s</h6>
                     <div id="region_totals_chart"></div>
+                    <div class="chart-container"></div>
                     <h6>**Groupings based on United Nations Regional Groupings</h6>
                 </div>
             </div>
 
-            <div class=" col-xs-12 col-lg-6">
-                <div class="">
-                    <h4 class="title">Spend In GBP £ of Top 10 Countries</h4>
+            <div class="card border-info col-xs-12 col-lg-6">
+                <div class="card-body">
+                    <h4 class="card-title">Spend In GBP £ of Top 10 Countries</h4>
                     <h6>*Number in 1000s</h6>
                     <div class="chart-container">
                         <div id="top10Spend"></div>
@@ -98,6 +101,7 @@
                 <div class="card-body">
                     <h4 class="card-title">Mode of Transport of Visitors arrival in London</h4> 
                         <h6>*Number of visitors in 1000s</h6>
+                        <div class="chart-container"></div>
                         <div id="mode_travel"></div>
                         <h6>Note: A large percentage of Non-European International visitors arrive via the European Continent</h6>
                 </div>
@@ -120,45 +124,24 @@
                 <div class="card-body">
                     <h4 class="card-title">Total Spend in GBP £ by Region</h4> 
                     <h6>*Number in 1000s</h6>
+                    <div class="chart-container"></div>
                     <div id="spend_totals_chart"></div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Data table
-    <div class="container">
-        <div class="row">
-            <div class="card border-info col-xs-12 col-lg-6">
-                <div class="card-body">
-                    <h4 class="card-title">Average Spend in GBP £ per visit & per night</h4> 
-                    
-                    <table id="dc-data-table" class="table data_table">
-                        <thead>
-                            <tr class="table-headings">
-                                <th>Country</th>
-                                <th>Average Spend per Visit</th>
-                                <th>Average Spend per Night</th>
-                             </tr>
-                        </thead>
-                        
-                              <div id="pagination">
-                                Results: <span id="start"></span>-<span id="end"></span> of <span id="totalSize"></span>
-                                <button id="prev" class="btn" onclick="prev()">Prev</button>
-                                <button id="next" class="btn" onclick="next()">Next</button>
-                              </div>
-                    </table>
-                </div>    
-            </div>
-        </div>
-    </div> -->
     </section>
+    <!-- Footer with github link-->
     <footer class="container footer">
         <div class="row">
             <div class="col-12">
-                <p>Data Dashboard created by Eileen Peacock<a href="" target="_blank"><i class="fa fa-github"></i></a></p>
+                <p>Data Dashboard created by Eileen Peacock  <a target="_blank" href="https://github.com/eileenpeacock/milestone2-data_dashboard"><i class="fab fa-github"></i></a></p>
+                
             </div>
         </div>
     </footer>
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html> 
 
