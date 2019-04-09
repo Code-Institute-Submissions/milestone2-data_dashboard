@@ -18,7 +18,6 @@ function topFunction() {
 
 queue()
     .defer(d3.json, 'data/international_visitors_london.json')
-    .defer(d3.json, 'data/avgs_international_visitors_london.json')
     .await(makeGraphs);
 
     /*Chart colors based on London underground colors 
@@ -38,18 +37,22 @@ queue()
         
         Order based on year of opening of Tube line (excluding Northern Line due to it being black) */
     
-    var formatDecimalComma = d3.format(",.2f")
-    var formatMoney = function(d) { return "£" + formatDecimalComma(d);};
-    var dateFormat = d3.time.format("%Y")
+    // var formatDecimalComma = d3.format(",.2f")
+    // var formatMoney = function(d) { return "£" + formatDecimalComma(d);};
+    // var dateFormat = d3.time.format("%Y")
     
+   
+
 
     var chartColors = d3.scale.ordinal()   
         .range(['#840B55', '#E89CAE', '#007A33', '#FFCD00', '#6ECEB2', '#DA291C', '#A45A2A','#10069F', '#00A3E0', '#7C878E', '#00B2A9', '#78BE20'])
 
+   
+
+
 function makeGraphs(error, visitorData, avgVisitorData) {
     var ndx = crossfilter(visitorData);
-    var ndx2 = crossfilter(avgVisitorData);
-    
+
     
 
     /*Call each chart function */
@@ -158,8 +161,7 @@ function show_mode_of_travel(ndx){
             });
         })
         ;
-        
-        
+      
 }
 
 
@@ -219,6 +221,7 @@ function show_purpose_of_travel(ndx){
 /* Composite Line Graph of spend over the years per quarter */
 
 function show_spend_years_qtrs(ndx){
+
 
     var yearsDim = ndx.dimension(dc.pluck('year'));
 
