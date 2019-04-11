@@ -30,14 +30,14 @@ The deployed version of the data dashboard can be viewed at: https://eileenpeaco
 ### User Stories:
 
 Potential users of this data dashboard could be: 
-The Tourism Industry - Hotel & Bed & Breakfast Industry, Restuarants, Airlines, Souvenir Vendors, Event planners, Local shops
+The Tourism Industry - Hotel & Bed & Breakfast Industry, Restaurants, Airlines, Souvenir Vendors, Event planners, Local shops
 Government Agencies & Mayoral Office - Tourism promotion, Road & travel maintenance, Event Planning 
 General public
 
 As this is an interactive data dashboard, clicking on any of the charts changes the data in the other charts/graphs.  A user is able to drill down to see more useful information for mode of transport, the spend, how long a visitor spent in London, what was their reason for being there and how many visitors from each country and region.  
 
-Goverment agency users:
-This would be useful for government agencies to target specific counties for tourism advertisments.  Also, knowing when the visitors were the hightest to target when to do major works on the infrastructure.
+Government agency users:
+This would be useful for government agencies to target specific counties for tourism advertisements.  Also, knowing when the visitors were the highest to target when to do major works on the infrastructure.
 
 Tourism industry users:
 Knowing which market to target.  Which countries have the largest spend and their mode of arrival to London.  Airlines/Hoteliers can target specific countries with special offers.
@@ -87,7 +87,7 @@ This dataset would be the average spend per visit and the average spend per day 
 #### Feature 2 - A total visitor count. 
 A number display that would change as and when the graphs and charts are interacted with.  This would give the total number of visitors.
 
-[Wireframes](assets/wireframes/wireframe.png): for the data dashboard.  These were the original data dashboard wireframes that included the Data table for average spends.  Due to not fixing the pagination, this was removed and changed to the now deplayed website.  
+[Wireframes](assets/wireframes/wireframe.png): for the data dashboard.  These were the original data dashboard wireframes that included the Data table for average spends.  Due to not fixing the pagination, this was removed and changed to the now deployed website.  
 
 ## Technologies Used
 
@@ -103,7 +103,7 @@ This project uses JQuery to assist in execution of bootstrap.
 ### [Font Awesome](https://fontawesome.com/): 
 The icon for the Github link in the footer was imported from Font Awesome.  
 
-### [Git & Git-Hub](9https://git-scm.com/): 
+### [Git & Git-Hub](https://git-scm.com/): 
 Local git repository was pushed to remote repository on GitHub and site was published using GitHub pages.
 
 ### [Visual Studio Code](https://code.visualstudio.com/):
@@ -112,7 +112,7 @@ This project was coded on Visual Studio Code.
 ### [D3.js](https://d3js.org/), [DC.js](https://dc-js.github.io/dc.js/) & [Crossfilter.js](http://square.github.io/crossfilter/)
 This project uses the javascript libraries, d3, dc and crossfilter to add interactive charts to this data dashboard.  
 
-###  Balsamiq Mockups 3
+###  [Balsamiq Mockups 3](https://balsamiq.com/wireframes/)
 This was used for the wireframe mockups.
 
 ## Testing
@@ -120,7 +120,7 @@ This was used for the wireframe mockups.
 I tested my website locally using Chrome DevTools.  This tested the responsiveness of the charts.  These appeared to be working fine. 
 Once I had deployed my site to Github, I tested this using the Google Chrome add on 'Responsive Web Design Tester'.  Whilst testing here I noticed that the charts were not being displayed properly if viewed in portrait mode on a mobile device.  I added an overflow scroll function using media queries so that the user is able to scroll to see the data on these charts.  I also added an alert that states it is advisable to view the website in landscape mode when on a mobile.   
 
-I tested on various screen sizes using this tool.  I also tested on my personal mobiles.  Huawei Pro P20 and iPhone 4s.  These displayed as expected in landscape mode.  When viewed in portrait mode on the iPhone 4s, the scroll funtion worked as expected.  This was not necessary on the Huawei Pro P20 due to size of the screen.  
+I tested on various screen sizes using this tool.  I also tested on my personal mobiles.  Huawei Pro P20 and iPhone 4s.  These displayed as expected in landscape mode.  When viewed in portrait mode on the iPhone 4s, the scroll function worked as expected.  This was not necessary on the Huawei Pro P20 due to size of the screen.  
 
 ###  Browsers
 I tested the website on the following browsers:  Safari, Google Chrome, and Firefox.  These all worked as expected.  
@@ -131,9 +131,9 @@ I tested this on all the following browsers, Safari, Google Chrome and Firefox. 
 ### Validator testing
 I validated my code using:
 
-HTML - https://validator.w3.org/: No errors but warnings that "The type attribute is unnecessary for JavaScript resources."  I've ignored this warning and left the type attibute as is.  
+HTML - https://validator.w3.org/: No errors but warnings that "The type attribute is unnecessary for JavaScript resources."  I've ignored this warning and left the type attribute as is.  
 
-CSS -  https://jigsaw.w3.org/css-validator/ The results of this were 100%: http://jigsaw.w3.org/css-validator/validator$link
+CSS -  https://jigsaw.w3.org/css-validator/ The results of this were 100%
 
 Javascript - https://jshint.com/  Missing semi-colons were found.  These have now been fixed and the code passed 100%
 
@@ -143,7 +143,7 @@ While validating my code, an error was highlighted regarding my reset button cod
 Friends and colleagues tested this on various phones and browsers.  This responded as expected.  
 
 ### Errors still to fix
-The year date on the composite chart is showing with a , seperator.  I tried to fix this by parsing the date but this caused errors in my charts.  This is something I would like to address in the future.  
+The year date on the composite chart is showing with a , separator.  I tried to fix this by parsing the date but this caused errors in my charts.  This is something I would like to address in the future.  
 
 ## Deployment
 The Website is hosted on GitHub, there are no differences between the deployed and current development versions.
