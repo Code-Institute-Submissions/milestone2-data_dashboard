@@ -17,12 +17,12 @@ select {
     border-color: #6ECEB2; 
 }
 
-#year_select {
+.year-drop-down {
     padding-bottom: 20px;
 }
 
  /* Scrolling Reset button */
- #myBtn {
+.reset-button {
     display: none;
     position: fixed;
     bottom: 20px;
@@ -38,7 +38,7 @@ select {
     border-radius: 10px;
   }
   
-  #myBtn:hover {
+  .reset-button:hover {
     background-color:#7C878E;
   }
 
@@ -46,7 +46,7 @@ select {
 
 /* Charts */
 
-h4.card-title {
+.card-title {
    font-weight: bold;
 }
 
@@ -59,7 +59,7 @@ h4.card-title {
 }
 
 
-i.fab.fa-github {
+.fab {
     color: black;
     font-size: 30px;
   }

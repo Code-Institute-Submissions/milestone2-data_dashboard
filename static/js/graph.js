@@ -1,5 +1,7 @@
+/*jshint esversion: 6 */ 
+
 /* Scrolling reset button */
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function() {scrollFunction();};
 
 function scrollFunction() {
   if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
@@ -9,11 +11,6 @@ function scrollFunction() {
   }
 }
 
-/* When the user clicks on the button, resets all charts/graphs */
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
 
 
 queue()
@@ -45,7 +42,7 @@ queue()
 
 
     var chartColors = d3.scale.ordinal()   
-        .range(['#840B55', '#E89CAE', '#007A33', '#FFCD00', '#6ECEB2', '#DA291C', '#A45A2A','#10069F', '#00A3E0', '#7C878E', '#00B2A9', '#78BE20'])
+        .range(['#840B55', '#E89CAE', '#007A33', '#FFCD00', '#6ECEB2', '#DA291C', '#A45A2A','#10069F', '#00A3E0', '#7C878E', '#00B2A9', '#78BE20']);
 
    
 
@@ -56,13 +53,13 @@ function makeGraphs(error, visitorData, avgVisitorData) {
     
 
     /*Call each chart function */
-    show_year_selector(ndx)
+    show_year_selector(ndx);
     show_total_visits_per_region(ndx);
-    show_top_spend_per_market(ndx)
-    show_mode_of_travel(ndx)
-    show_purpose_of_travel(ndx)
-    show_spend_years_qtrs(ndx)
-    show_total_spend_per_region(ndx)
+    show_top_spend_per_market(ndx);
+    show_mode_of_travel(ndx);
+    show_purpose_of_travel(ndx);
+    show_spend_years_qtrs(ndx);
+    show_total_spend_per_region(ndx);
 
     dc.renderAll();
 
@@ -110,7 +107,7 @@ function show_total_visits_per_region (ndx){
 function show_top_spend_per_market(ndx) {
      
     var market_spend_dim = ndx.dimension(dc.pluck('market'));
-    var spend_group = market_spend_dim.group().reduceSum(dc.pluck('spend'))
+    var spend_group = market_spend_dim.group().reduceSum(dc.pluck('spend'));
     
 
     dc.rowChart('#top10Spend')
@@ -136,7 +133,7 @@ function show_mode_of_travel(ndx){
 
     var modeColors = d3.scale.ordinal()   
         .domain(['Air', 'Sea', 'Tunnel'])
-        .range(['#E89CAE', '#840B55','#10069F'])
+        .range(['#E89CAE', '#840B55','#10069F']);
         
     var mode_dim = ndx.dimension(dc.pluck('mode'));
     var mode_travel_group = mode_dim.group().reduceSum(dc.pluck('visits'));
@@ -170,7 +167,7 @@ function show_purpose_of_travel(ndx){
 
     var purposeColors = d3.scale.ordinal()   
         .domain(['Business', 'Holiday', 'Friends/Family', 'Misc', 'Study'])
-        .range(['#10069F', '#E89CAE', '#840B55', '#00A3E0', '#007A33'])
+        .range(['#10069F', '#E89CAE', '#840B55', '#00A3E0', '#007A33']);
         
 
     var durStay_dim = ndx.dimension(dc.pluck('dur_stay'));
@@ -188,7 +185,7 @@ function show_purpose_of_travel(ndx){
             } else {
                 return 0;
             }
-        }
+        };
     }
 
     
@@ -233,8 +230,8 @@ function show_spend_years_qtrs(ndx){
             } else {
                 return 0;
             }
-        }
-    };
+        };
+    }
   
     var spendByQtr1 =yearsDim.group().reduceSum(spendByQtr('Q1'));
     var spendByQtr2 =yearsDim.group().reduceSum(spendByQtr('Q2'));
