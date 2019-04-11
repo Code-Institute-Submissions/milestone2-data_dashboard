@@ -30,9 +30,9 @@ The deployed version of the data dashboard can be viewed at: https://eileenpeaco
 ### User Stories:
 
 Potential users of this data dashboard could be: 
-The Tourism Industry - Hotel & Bed & Breakfast Industry, Restaurants, Airlines, Souvenir Vendors, Event planners, Local shops
-Government Agencies & Mayoral Office - Tourism promotion, Road & travel maintenance, Event Planning 
-General public
+-The Tourism Industry - Hotel & Bed & Breakfast Industry, Restaurants, Airlines, Souvenir Vendors, Event planners, Local shops
+-Government Agencies & Mayoral Office - Tourism promotion, Road & travel maintenance, Event Planning 
+-General public - general interest in seeing figures and numbers of visitors to London
 
 As this is an interactive data dashboard, clicking on any of the charts changes the data in the other charts/graphs.  A user is able to drill down to see more useful information for mode of transport, the spend, how long a visitor spent in London, what was their reason for being there and how many visitors from each country and region.  
 
