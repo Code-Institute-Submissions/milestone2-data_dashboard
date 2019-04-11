@@ -87,7 +87,7 @@ This dataset would be the average spend per visit and the average spend per day 
 #### Feature 2 - A total visitor count. 
 A number display that would change as and when the graphs and charts are interacted with.  This would give the total number of visitors.
 
-[Wireframes](assets/wireframes/wireframes1.bmpr) for the data dashboard.  These were the original data dashboard wireframes that included the Data table for average spends.  Due to not fixing the pagination, this was removed and changed to the now deplayed website.  
+[Wireframes](assets/wireframes/wireframe1.bmpr) for the data dashboard.  These were the original data dashboard wireframes that included the Data table for average spends.  Due to not fixing the pagination, this was removed and changed to the now deplayed website.  
 
 ## Technologies Used
 
@@ -156,7 +156,7 @@ This is the deployed version which is hosted on Github pages.  More about Github
 ## Credits
 
 ### Content
-- I regularly referenced the following websites to help implement my charts and graphs for DC and crossfilter.  
+- I regularly referenced the following websites to help implement my charts and graphs using DC and crossfilter.  
     - DC.js[Examples of using dc.js](http://dc-js.github.io/dc.js/examples/)
     - Tutorials Point [DC.js Tutorial](https://www.tutorialspoint.com/dcjs/)
     - Crossfilter article by Peter Cook [Getting to know Crossfilter](https://animateddata.co.uk/articles/crossfilter/) 
@@ -168,5 +168,5 @@ This is the deployed version which is hosted on Github pages.  More about Github
 
 #### Media:
 
-The London Skyline drawing photo is from https://cityscapeillustrator.com/london-skyline-drawing-for-leon-paul/
+The London Skyline drawing photo is credited to: https://cityscapeillustrator.com/london-skyline-drawing-for-leon-paul/
 
