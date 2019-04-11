@@ -15,7 +15,7 @@
 >Visualise your data using D3.js and dc.js
 
 
-This is a data dashboard of international visitors visiting London.  Data dashboards are best viewed full screen By clicking on the various charts & drop down menu, the user can interact with the charts to see the time spent, the reason for the visit, how much was spent and where the visitors originated from as well as the mode of transport used to get to London.  
+This is a data dashboard of international visitors visiting London.  Data dashboards are best viewed full screen on a desktop or laptop.  By clicking on the various charts & drop down menu, the user can interact with the charts to see the time spent, the reason for the visit, how much was spent and where the visitors originated from as well as the mode of transport used to get to London.  
 
 I chose this dataset as London has an ever constant flow of foreign tourists and visitors and I was intrigued what the figures would look like.  I sourced the dataset from [The Mayor of London's](https://data.london.gov.uk/dataset/number-international-visitors-london) website  which had figures from the Office of National Statistics.  Using the downloaded csv file, I manipulated the data to include regional areas which was more easily to grasp & handle than only the various countries visiting London.  This grouping was based on the [United Nations's](https://www.internetworldstats.com/list1.htm#geo) groupings of countries in regions.  
 
