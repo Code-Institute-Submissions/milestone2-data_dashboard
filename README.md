@@ -109,10 +109,10 @@ Local git repository was pushed to remote repository on GitHub and site was publ
 ### [Visual Studio Code](https://code.visualstudio.com/):
 This project was coded on Visual Studio Code. 
 
-### [D3.js](https://d3js.org/), [DC.js](https://dc-js.github.io/dc.js/) & [Crossfilter.js](http://square.github.io/crossfilter/)
+### [D3.js](https://d3js.org/), [DC.js](https://dc-js.github.io/dc.js/) & [Crossfilter.js](http://square.github.io/crossfilter/):
 This project uses the javascript libraries, d3, dc and crossfilter to add interactive charts to this data dashboard.  
 
-###  [Balsamiq Mockups 3](https://balsamiq.com/wireframes/)
+###  [Balsamiq Mockups 3](https://balsamiq.com/wireframes/):
 This was used for the wireframe mockups.
 
 ## Testing
@@ -165,6 +165,8 @@ This is the deployed version which is hosted on Github pages.  More about Github
 - The code for the percentages for the Mode of travel pie chart was adapted from the Dc.js library found here.  https://github.com/dc-js/dc.js/blob/master/web/examples/pie.html
 
 - I tweaked the scrolling back to top button for my reset button.  The original code was can be found here. https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
+
+- The data set is from the Mayor of London's website - https://data.london.gov.uk/dataset/number-international-visitors-london
 
 #### Media:
 
