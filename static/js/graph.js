@@ -3,6 +3,7 @@
 /* Scrolling reset button */
 window.onscroll = function() {scrollFunction();};
 
+//When the user scrolls 10px from the top, the reset button appears
 function scrollFunction() {
   if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
     document.getElementById("myBtn").style.display = "block";
