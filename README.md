@@ -125,6 +125,8 @@ I tested on various screen sizes using this tool.  I also tested on my personal 
 ###  Browsers
 I tested the website on the following browsers:  Safari, Google Chrome, and Firefox.  These all worked as expected.  
 
+I also tested this website on Internet Explorer and Firefox.  The graphs and charts did not render.  There was no console error message on Internet Explorer & the console error message in Firefox was "TypeError: this.node(...) is null error".  
+
 ### Charts responding to clicking
 I tested this on all the following browsers, Safari, Google Chrome and Firefox.  All graphs responded and worked interactively together as expected.  
 
